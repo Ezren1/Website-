@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Islam by the Qur’an Alone</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Variables for Theming */
+    :root {
+      --primary-color: #1A3464; /* Deeper Blue, slightly darker than before */
+      --secondary-color: #0B796D; /* Richer Teal */
+      --accent-color-1: #4A89F7; /* Vibrant Blue */
+      --accent-color-2: #16A34A; /* More vibrant Green */
+      --text-dark: #1F2937; /* Darker grey for body text */
+      --text-light: #4B5563; /* Medium grey for intros */
+      --background-light: #F8F9FA; /* Off-white, subtle */
+      --background-medium: #EFF2F5; /* Light grey */
+      --white: #ffffff;
+      --card-shadow: 0 12px 30px rgba(0,0,0,0.08); /* Slightly more prominent */
+      --card-hover-shadow: 0 25px 45px rgba(0,0,0,0.15); /* Stronger hover shadow */
+      --border-radius-lg: 1.25rem; /* More rounded */
+      --border-radius-full: 999px;
+
+      /* Animation timings */
+      --animation-duration: 0.8s;
+      --animation-delay-base: 0.15s;
+    }
+
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, var(--background-light), var(--background-medium));
+      color: var(--text-dark);
+      line-height: 1.75; /* Increased for better readability */
+      scroll-behavior: smooth;
+      overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    }
+
+    /* Custom Scrollbar for Webkit browsers */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--background-medium);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-color-1);
+      border-radius: 6px;
+      border: 3px solid var(--background-medium); /* Creates spacing */
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-color);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Amiri', serif;
+      font-weight: 700;
+      color: var(--primary-color);
+      letter-spacing: -0.02em; /* Tighter letter spacing for headings */
+    }
+
+    a, button {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px; /* Slightly wider max-width */
+      margin: 0 auto;
+      padding: 0 2rem; /* More padding */
+    }
+
+    /* --- Keyframe Animations --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulsate {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(74,137,247,0.7); }
+      70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(74,137,247,0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(74,137,247,0); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: var(--white); }
+    }
+    @keyframes bounceScroll {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Stronger shadow */
+      animation: fadeIn var(--animation-duration) ease-out;
+      transition: background 0.4s ease, box-shadow 0.4s ease; /* For dynamic header */
+    }
+
+    header.scrolled {
+      background: var(--white);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    header.scrolled .logo {
+        color: var(--primary-color);
+        text-shadow: none;
+    }
+    header.scrolled nav.desktop-nav a {
+        color: var(--text-dark);
+    }
+    header.scrolled nav.desktop-nav a:hover {
+        color: var(--accent-color-1);
+    }
+    header.scrolled nav.desktop-nav a::after {
+        background-color: var(--accent-color-1);
+    }
+    header.scrolled .mobile-toggle {
+        color: var(--primary-color);
+    }
+
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0; /* More padding */
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      transition: color 0.4s ease, text-shadow 0.4s ease;
+    }
+
+    nav.desktop-nav {
+      display: flex;
+      gap: 2.2rem; /* More space between links */
+    }
+
+    nav.desktop-nav a {
+      color: var(--white);
+      font-weight: 600;
+      position: relative;
+      transition: all 0.3s ease;
+      padding-bottom: 5px;
+    }
+
+    nav.desktop-nav a:hover {
+      color: var(--accent-color-1);
+      transform: translateY(-2px);
+    }
+
+    nav.desktop-nav a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-color-1);
+      transition: all 0.3s ease-out;
+      transform: translateX(-50%);
+    }
+
+    nav.desktop-nav a:hover::after,
+    nav.desktop-nav a.active::after {
+      width: 100%;
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 1.9rem;
+      color: var(--white);
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      transition: transform 0.3s ease, color 0.4s ease;
+    }
+
+    .mobile-toggle:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      right: 2rem;
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.2);
+      overflow: hidden;
+      transform: scale(0.9);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      transform-origin: top right;
+      min-width: 220px;
+    }
+
+    .mobile-menu.show {
+      transform: scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      padding: 0.7rem 0;
+    }
+
+    .mobile-menu li {
+      padding: 0.9rem 1.8rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .mobile-menu li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu li:hover {
+      background-color: rgba(30, 58, 138, 0.1);
+    }
+
+    .mobile-menu li a {
+      color: var(--primary-color);
+      font-weight: 600;
+      display: block;
+      transition: color 0.3s ease;
+    }
+    .mobile-menu li a:hover {
+      color: var(--accent-color-1);
+    }
+
+    @media (max-width: 992px) { /* Adjust breakpoint for larger screens */
+      nav.desktop-nav {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+      background-size: 200% 200%;
+      animation: gradientShift 10s ease infinite;
+      color: var(--white);
+      padding: 9rem 2rem 7rem; /* More vertical padding */
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh; /* Taller hero */
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0);
+      background-size: 30px 30px; /* Larger grid pattern */
+      animation: moveGrid 35s linear infinite; /* Slower grid movement */
+      opacity: 0.15;
+    }
+
+    @keyframes moveGrid {
+      from { background-position: 0 0; }
+      to { background-position: -60px -60px; }
+    }
+
+    .hero-content {
+      max-width: 950px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: scaleIn var(--animation-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .hero-content h1 {
+      font-size: 3.8rem; /* Larger font for impact */
+      line-height: 1.15;
+      margin-bottom: 1.8rem;
+      color: var(--white);
+      text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+
+    .hero-content p.tagline {
+      font-size: 1.6rem; /* Larger tagline */
+      font-style: italic;
+      margin-bottom: 3rem;
+      opacity: 0.98;
+      font-weight: 300;
+      position: relative;
+      display: inline-block; /* For typing effect */
+      white-space: nowrap; /* For typing effect */
+      overflow: hidden; /* For typing effect */
+      border-right: .15em solid var(--white); /* The caret */
+      animation: typing 3s steps(40, end) forwards, blink-caret .75s step-end infinite;
+      width: 0; /* Start with zero width for typing effect */
+    }
+
+    .hero-content .quote {
+      font-size: 1.3rem;
+      font-style: italic;
+      margin: 3rem 0;
+      opacity: 0.98;
+      font-weight: 400;
+      background: rgba(255,255,255,0.12); /* Slightly more visible background */
+      padding: 1.5rem 2rem; /* More padding */
+      border-radius: 1rem;
+      border-left: 6px solid var(--accent-color-1); /* Thicker border */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem; /* More space between buttons */
+      margin-top: 3.5rem;
+    }
+
+    .btn {
+      padding: 1.1rem 2.8rem; /* Larger buttons */
+      border-radius: var(--border-radius-full);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 1.05rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent); /* Stronger shimmer */
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color-1);
+      color: var(--white);
+      box-shadow: 0 8px 25px rgba(74,137,247,0.5);
+    }
+
+    .btn-primary:hover {
+      background-color: #3C72D6;
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(74,137,247,0.7);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    /* Scroll Down Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--white);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.8;
+      animation: fadeIn var(--animation-duration) ease-out var(--animation-duration); /* Fade in after hero content */
+    }
+    .scroll-indicator .arrow {
+      font-size: 2rem;
+      line-height: 1;
+      animation: bounceScroll 2s infinite;
+    }
+
+    /* Common Section Styling */
+    section {
+      padding: 8rem 0; /* More padding */
+      position: relative;
+      overflow: hidden; /* For animations */
+    }
+
+    h2 {
+      font-size: 3.2rem; /* Larger section titles */
+      text-align: center;
+      margin-bottom: 5rem;
+      position: relative;
+      z-index: 1;
+      color: var(--primary-color);
+      animation: fadeIn var(--animation-duration) ease-out backwards; /* Animate on scroll */
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 90px; /* Wider line */
+      height: 4px; /* Thicker line */
+      background: linear-gradient(90deg, var(--accent-color-1), var(--secondary-color));
+      margin: 1.8rem auto 0; /* More space below */
+      border-radius: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.3rem; /* Larger intro text */
+      max-width: 950px;
+      margin: 1.8rem auto 4.5rem; /* More spacing */
+      text-align: center;
+      color: var(--text-light);
+      line-height: 1.8;
+      animation: fadeIn var(--animation-duration) ease-out backwards var(--animation-delay-base); /* Animate on scroll */
+    }
+
+    .verse-card {
+      background: rgba(13, 150, 136, 0.08); /* Slightly more opaque */
+      border-left: 6px solid var(--secondary-color); /* Thicker border */
+      padding: 2rem 2.5rem; /* More padding */
+      border-radius: var(--border-radius-lg);
+      margin-bottom: 3.5rem;
+      font-style: italic;
+      text-align: center;
+      color: var(--text-dark);
+      font-size: 1.15rem; /* Larger verse text */
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      animation: slideInLeft var(--animation-duration) ease-out backwards; /* Animate on scroll */
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Larger min-width */
+      gap: 2.8rem; /* More gap */
+    }
+
+    .topic-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 2.2rem; /* More padding */
+      box-shadow: var(--card-shadow);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; /* Springy transition */
+      position: relative;
+      overflow: hidden;
+      border-top: 6px solid transparent; /* Placeholder for color strip */
+      animation: scaleIn var(--animation-duration) ease-out backwards; /* Animate on scroll */
+    }
+
+    .topic-card:hover {
+      transform: translateY(-10px) scale(1.01); /* More pronounced lift */
+      box-shadow: var(--card-hover-shadow);
+    }
+
+    .topic-card h3 {
+      font-size: 1.5rem; /* Larger heading */
+      margin-bottom: 0.8rem;
+      color: var(--primary-color);
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+
+    .topic-card h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px; /* Wider underline */
+      height: 4px; /* Thicker underline */
+      background-color: var(--accent-color-1); /* Default underline */
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    .topic-card:hover h3::after {
+      width: 70px; /* Expand underline on hover */
+    }
+
+    .topic-card p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* Unique color strips for topic cards */
+    .green-strip { border-top-color: var(--accent-color-2); }
+    .red-strip { border-top-color: #DC2626; } /* Stronger red */
+    .teal-strip { border-top-color: var(--secondary-color); }
+    .blue-strip { border-top-color: var(--accent-color-1); }
+    .purple-strip { border-top-color: #9333EA; } /* Deeper purple */
+
+    /* Accordion FAQ */
+    details {
+      background: var(--white);
+      padding: 1.4rem 2rem; /* More padding */
+      border-radius: var(--border-radius-lg);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06); /* Stronger shadow */
+      cursor: pointer;
+      border: 1px solid rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      animation: fadeIn var(--animation-duration) ease-out backwards; /* Animate on scroll */
+    }
+    details:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transform: translateY(-3px);
+    }
+
+    summary {
+      font-size: 1.25rem; /* Larger summary text */
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none; /* Prevent text selection on click */
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '\2b'; /* Plus sign */
+      font-family: 'Inter', sans-serif; /* Ensure consistent font */
+      font-size: 1.8rem; /* Larger icon */
+      font-weight: 300;
+      color: var(--accent-color-1);
+      transition: transform 0.3s ease;
+    }
+
+    details[open] summary::after {
+      content: '\2212'; /* Minus sign */
+      transform: rotate(0deg); /* No rotation needed for - */
+    }
+
+    details p {
+      padding-top: 1.2rem; /* More padding */
+      font-size: 1.1rem;
+      color: var(--text-light);
+      border-top: 1px solid rgba(0,0,0,0.1); /* Slightly more visible border */
+      margin-top: 1.2rem;
+      animation: fadeIn 0.5s ease-out; /* Fade in content */
+    }
+
+    /* Contact Form Enhancements */
+    form {
+      background: var(--white);
+      padding: 3rem; /* More padding */
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--card-shadow);
+      max-width: 700px !important; /* Override inline style */
+      margin: 0 auto;
+      animation: scaleIn var(--animation-duration) ease-out backwards;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 1.8rem; /* More space */
+      padding: 1.1rem; /* Larger padding */
+      border: 1px solid #D1D5DB;
+      border-radius: 0.85rem; /* More rounded corners */
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: var(--accent-color-1);
+      box-shadow: 0 0 0 4px rgba(74,137,247,0.25); /* Stronger focus ring */
+    }
+
+    form button[type="submit"] {
+      width: 100%;
+      padding: 1.3rem; /* Larger button */
+      font-size: 1.15rem;
+      animation: pulsate 2s infinite;
+    }
+    form button[type="submit"]:hover {
+        animation: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 2rem; /* More padding */
+      margin-top: 6rem;
+      box-shadow: inset 0 6px 20px rgba(0,0,0,0.25); /* Inner shadow */
+    }
+
+    footer .quote {
+      font-style: italic;
+      font-size: 1.1rem; /* Slightly larger */
+      opacity: 0.98;
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* Scroll to top button */
+    #scrollToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      border: none;
+      outline: none;
+      background-color: var(--accent-color-1);
+      color: white;
+      cursor: pointer;
+      padding: 16px 19px; /* Slightly larger button */
+      border-radius: 50%;
+      font-size: 1.3rem; /* Larger icon */
+      box-shadow: 0 5px 15px rgba(74,137,247,0.5);
+      transition: all 0.3s ease;
+    }
+
+    #scrollToTopBtn:hover {
+      background-color: #3C72D6;
+      box-shadow: 0 8px 20px rgba(74,137,247,0.7);
+      transform: translateY(-4px);
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      .hero-content p.tagline {
+        font-size: 1.25rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      .section-intro {
+        font-size: 1.15rem;
+      }
+      .btn {
+        width: 100%;
+        max-width: 320px;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .container {
+        padding: 0 1.5rem;
+      }
+      section {
+        padding: 6rem 0;
+      }
+      .topic-card {
+        padding: 1.8rem;
+      }
+      details {
+        padding: 1.2rem 1.5rem;
+      }
+      summary {
+        font-size: 1.1rem;
+      }
+      details p {
+        font-size: 1rem;
+      }
+      form {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p.tagline {
+        font-size: 1.05rem;
+      }
+      .hero-content .quote {
+        font-size: 1.1rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      .section-intro {
+        font-size: 1rem;
+      }
+      .topic-card h3 {
+        font-size: 1.3rem;
+      }
+      .btn {
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+      }
+      .logo {
+        font-size: 1.4rem;
+      }
+      .mobile-toggle {
+        font-size: 1.6rem;
+      }
+      .mobile-menu {
+        right: 1.5rem;
+        min-width: 180px;
+      }
+      .mobile-menu li {
+        padding: 0.7rem 1.2rem;
+      }
+      footer {
+        padding: 2.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-content">
+    <div class="logo">Islam by the Qur’an Alone</div>
+
+    <nav class="desktop-nav">
+      <a href="#why-quran-alone">Why Qur’an Alone?</a>
+      <a href="#true-islam">True Islam</a>
+      <a href="#false-teachings">False Teachings</a>
+      <a href="#hadith-contradicts-quran-1">Hadith vs. Quran</a>
+      <a href="#hadith-contradicts-hadith">Hadith Inconsistencies</a>
+      <a href="#hadith-attack-prophet">Prophet's Character</a>
+      <a href="#quran-prohibits-hadith">Qur’an Prohibits Hadith</a>
+      <a href="#faq-sectarian">Sectarian Questions</a>
+      <a href="#how-to-follow">How to Follow</a>
+      <a href="#resources">Resources</a>
+      <a href="#about-us">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">&#9776;</button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#why-quran-alone">Why Qur’an Alone?</a></li>
+      <li><a href="#true-islam">True Islam</a></li>
+      <li><a href="#false-teachings">False Teachings</a></li>
+      <li><a href="#hadith-contradicts-quran-1">Hadith vs. Quran</a></li>
+      <li><a href="#hadith-contradicts-hadith">Hadith Inconsistencies</a></li>
+      <li><a href="#hadith-attack-prophet">Prophet's Character</a></li>
+      <li><a href="#quran-prohibits-hadith">Qur’an Prohibits Hadith</a></li>
+      <li><a href="#faq-sectarian">Sectarian Questions</a></li>
+      <li><a href="#how-to-follow">How to Follow</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#about-us">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <h1>Islam by the Qur’an Alone</h1>
+    <p class="tagline" id="tagline-text">Complete. Preserved. Unmatched.</p>
+
+    <blockquote class="quote">
+      “This is the Book — no doubt in it — a guide for the mindful.”<br/>
+      <strong>— Qur’an 2:2</strong>
+    </blockquote>
+
+    <p>We are a group of truth-seekers who believe that Allah’s Book is fully sufficient, completely detailed, and protected. We reject all man-made additions and follow only what is clearly revealed in the Qur’an — the sole authority in Islam.</p>
+
+    <div class="hero-buttons">
+      <a href="#why-quran-alone" class="btn btn-primary">Start Here</a>
+      <a href="#faq-sectarian" class="btn btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    Scroll Down
+    <span class="arrow">&#x2193;</span>
+  </div>
+</section>
+
+<section id="why-quran-alone">
+  <div class="container">
+    <h2 class="animate-on-scroll">The Only Guidance Allah Sent Down</h2>
+    <p class="section-intro animate-on-scroll">Allah has given us a perfect Book — complete, preserved, and needing no addition.</p>
+
+    <div class="grid-layout">
+      <div class="topic-card green-strip animate-on-scroll">
+        <h3>Fully Detailed</h3>
+        <p>"And We have sent down to you the Book explaining all things..." (16:89)</p>
+      </div>
+      <div class="topic-card green-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>Preserved</h3>
+        <p>"Indeed, it is We who sent down the Reminder and indeed, We will be its guardian." (15:9)</p>
+      </div>
+      <div class="topic-card red-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>No Need for Other Judge</h3>
+        <p>"Shall I seek other than Allah as a judge, when He has sent down to you the Book explained in detail?" (6:114)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="true-islam">
+  <div class="container">
+    <h2 class="animate-on-scroll">Pure Submission to One God</h2>
+    <p class="section-intro animate-on-scroll">The core principles of Islam according to the Qur’an:</p>
+
+    <div class="grid-layout">
+      <div class="topic-card teal-strip animate-on-scroll">
+        <h3>Tawheed</h3>
+        <p>“Say: He is Allah, the One.” (112:1)</p>
+      </div>
+      <div class="topic-card teal-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>Prayer</h3>
+        <p>“Establish prayer for My remembrance.” (20:14)</p>
+      </div>
+      <div class="topic-card teal-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>Zakah</h3>
+        <p>“Give due from it on the day of harvest.” (6:141)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="false-teachings">
+  <div class="container">
+    <h2 class="animate-on-scroll">What Islam Is NOT</h2>
+    <p class="section-intro animate-on-scroll">These false teachings contradict the Qur’an:</p>
+
+    <div class="grid-layout">
+      <div class="topic-card red-strip animate-on-scroll">
+        <h3>Adultery Punishment</h3>
+        <p>Qur'an: 100 lashes (24:2). Hadith: Stoning to death (contradicts Qur'anic mercy & clear punishment).</p>
+      </div>
+      <div class="topic-card red-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>Apostasy Penalty</h3>
+        <p>Qur'an: "No compulsion in religion" (2:256), allows for disbelief without earthly punishment. Hadith: Prescribes death penalty for apostasy.</p>
+      </div>
+      <div class="topic-card red-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>Blind Following</h3>
+        <p>Qur'an condemns taking scholars as lords besides Allah (9:31). Hadith encourages unquestioning obedience to tradition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hadith-contradicts-quran-1">
+  <div class="container">
+    <h2 class="animate-on-scroll">Hadith Contradicts Quran: Direct Clashes</h2>
+    <p class="section-intro animate-on-scroll">Explore specific examples where Hadith narratives directly conflict with clear Qur’anic verses.</p>
+
+    <div class="grid-layout">
+      <div class="topic-card red-strip animate-on-scroll">
+        <h3>Inheritance Laws</h3>
+        <p>Qur'an (4:11-12) clearly details inheritance shares. Hadith (e.g., "We, the Prophets, do not inherit...") contradicts the Qur'an's principles for inheritance.</p>
+      </div>
+      <div class="topic-card red-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>Eating Pork/Forbidden Meats</h3>
+        <p>Qur'an (6:145) explicitly lists what is forbidden. Some Hadith introduce additional prohibitions not found in the Qur'an, such as eating specific wild animals.</p>
+      </div>
+      <div class="topic-card red-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>Intercession</h3>
+        <p>Qur'an (2:255, 6:51) states intercession is only by Allah's permission and for those He wills. Hadith often promote intercession by saints or prophets against Qur'anic principles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hadith-contradicts-hadith">
+  <div class="container">
+    <h2 class="animate-on-scroll">Hadith Contradicts Hadith: Internal Inconsistencies</h2>
+    <p class="section-intro animate-on-scroll">Discover how different Hadith narratives often contradict each other, undermining their reliability as a secondary source of law.</p>
+
+    <div class="grid-layout">
+      <div class="topic-card purple-strip animate-on-scroll">
+        <h3>Creation of Adam</h3>
+        <p>Some Hadith state Adam was created on Friday, others on Saturday or Sunday. These conflicting narratives highlight issues in preservation.</p>
+      </div>
+      <div class="topic-card purple-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>Number of Prayers</h3>
+        <p>While the Qur'an specifies prayer times, some Hadith describe variations in the number of daily prayers, even after Prophet Muhammad's migration to Medina.</p>
+      </div>
+      <div class="topic-card purple-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>Prophet's Diet</h3>
+        <p>Hadith offer conflicting accounts of the Prophet's dietary habits, including consumption of certain foods which are then debated by scholars based on other Hadith.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hadith-attack-prophet">
+  <div class="container">
+    <h2 class="animate-on-scroll">Hadith Attack Prophet's Character</h2>
+    <p class="section-intro animate-on-scroll">Examine Hadith that portray the Prophet Muhammad (PBUH) in ways inconsistent with the dignified and wise image presented in the Qur'an.</p>
+
+    <div class="grid-layout">
+      <div class="topic-card red-strip animate-on-scroll">
+        <h3>Magical Powers</h3>
+        <p>Some Hadith attribute magical powers or supernatural events to the Prophet (e.g., splitting the moon), contradicting the Qur'an's portrayal of him as a human messenger (18:110).</p>
+      </div>
+      <div class="topic-card red-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>Forgetfulness in Prayer</h3>
+        <p>Certain Hadith depict the Prophet forgetting parts of his prayer, which is inconsistent with the Qur'an's description of his guidance and meticulousness.</p>
+      </div>
+      <div class="topic-card red-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>Moral Lapses</h3>
+        <p>A few Hadith narratives contain stories that could be interpreted as moral lapses or questionable actions, which are strongly rebutted by the Qur'anic depiction of his exalted character (68:4).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quran-prohibits-hadith">
+  <div class="container">
+    <h2 class="animate-on-scroll">Qur’an Prohibits Hadith: The Sole Authority</h2>
+    <p class="section-intro animate-on-scroll">The Qur’an frequently emphasizes its completeness and sufficiency, directly questioning the need for any other "hadith" (statement or narrative) or authority.</p>
+
+    <div class="grid-layout">
+      <div class="topic-card blue-strip animate-on-scroll">
+        <h3>"Which Hadith After Allah?"</h3>
+        <p>"Then in which hadith (statement/narrative) after Allah and His verses do they believe?" (45:6)</p>
+      </div>
+      <div class="topic-card blue-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>Book is Fully Detailed</h3>
+        <p>"A Book whose verses have been detailed" (11:1). "And We have sent down to you the Book explaining all things" (16:89).</p>
+      </div>
+      <div class="topic-card blue-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>No Other Source Needed</h3>
+        <p>"Shall I seek other than Allah as a judge, when He has sent down to you the Book explained in detail?" (6:114)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hadith-contradicts-quran-2">
+  <div class="container">
+    <h2 class="animate-on-scroll">Hadith Contradicts Quran: Further Examples</h2>
+    <p class="section-intro animate-on-scroll">More instances highlighting the disparity between the Qur’an's divine guidance and certain Hadith narrations.</p>
+
+    <div class="grid-layout">
+      <div class="topic-card red-strip animate-on-scroll">
+        <h3>Wiping Over Socks (Khuffain)</h3>
+        <p>Qur'an (5:6) specifies washing feet for ablution. Hadith permit wiping over leather socks, which contradicts the Qur'anic instruction.</p>
+      </div>
+      <div class="topic-card red-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>Marriage Laws</h3>
+        <p>The Qur'an (4:24) permits marriage to women among the people of the Book. Some Hadith, however, imply a prohibition on such marriages without specific Qur'anic backing.</p>
+      </div>
+      <div class="topic-card red-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>Punishment for Theft</h3>
+        <p>Qur'an (5:38) specifies cutting of the hand for male and female thieves. Some Hadith specify conditions (e.g., minimum value of stolen item) not found in the Qur'an.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq-sectarian">
+  <div class="container">
+    <h2 class="animate-on-scroll">Questions from Sectarians</h2>
+    <p class="section-intro animate-on-scroll">Common objections and honest answers:</p>
+
+    <details class="animate-on-scroll">
+      <summary>Q: Are all hadiths false?</summary>
+      <p>A: No, but the Qur’an never tells us to rely on any. The truth does not need hadith to survive. Only the Qur’an is protected. Allah clearly states in the Qur'an that He is the sole guardian of His Reminder (15:9), referring exclusively to the Qur'an.</p>
+    </details>
+
+    <details class="animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+      <summary>Q: How do we pray without hadith?</summary>
+      <p>A: The Qur’an commands prayer, gives its timings (2:238, 11:114, 17:78), and shows its purpose. Practices passed from Ibrahim (a.s.) through generations of Muslims, that do not contradict the Qur’an, may be followed, but we do not treat them as divine law. Our guidance comes directly from Allah's Book.</p>
+    </details>
+
+    <details class="animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+      <summary>Q: Isn’t this a new sect?</summary>
+      <p>A: No — it’s a return to the original Islam: following Allah’s Book alone, without additions or sects. The Qur'an itself warns against forming sects (6:159, 30:31–32) and emphasizes unity around Allah's Book.</p>
+    </details>
+
+    <details class="animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 3);">
+      <summary>Q: What about the Sunnah of the Prophet?</summary>
+      <p>A: The Sunnah of the Prophet (his practice) was to follow the Qur'an perfectly. His example is found within the Qur'an itself. The Qur'an is the complete and perfect model, detailing how a messenger of Allah lives and teaches.</p>
+    </details>
+  </div>
+</section>
+
+<section id="how-to-follow">
+  <div class="container">
+    <h2 class="animate-on-scroll">How to Follow Islam Without Hadith</h2>
+    <p class="section-intro animate-on-scroll">Simple steps based on Qur’anic guidance:</p>
+
+    <div class="grid-layout">
+      <div class="topic-card blue-strip animate-on-scroll">
+        <h3>✅ Pray Directly to Allah</h3>
+        <p>Establish prayer for My remembrance (20:14). The Qur'an provides timings (2:238, 11:114) and emphasizes sincere devotion.</p>
+      </div>
+      <div class="topic-card blue-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>✅ Give Charity (Zakah)</h3>
+        <p>Give due from it on the day of harvest (6:141). The Qur'an repeatedly commands charity to the poor and needy (2:177, 9:60).</p>
+      </div>
+      <div class="topic-card blue-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>✅ Fast During Ramadan</h3>
+        <p>Fasting is prescribed for you as it was prescribed for those before you... (2:183-185). The Qur'an clearly defines the period and purpose of fasting.</p>
+      </div>
+      <div class="topic-card blue-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 3);">
+        <h3>✅ Perform Hajj/Umrah</h3>
+        <p>Complete the Hajj and Umrah for Allah (2:196). The Qur'an outlines the fundamental rites of pilgrimage, emphasizing devotion to Allah alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resources">
+  <div class="container">
+    <h2 class="animate-on-scroll">Resources to Learn & Share</h2>
+    <p class="section-intro animate-on-scroll">Download and share these free resources to deepen your understanding of Islam by the Qur’an Alone:</p>
+
+    <div class="grid-layout">
+      <div class="topic-card purple-strip animate-on-scroll">
+        <h3>📚 Qur’an Translations</h3>
+        <p>Access high-quality PDF versions of the Qur'an in various languages, focusing on clarity and context.</p>
+      </div>
+      <div class="topic-card purple-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 1);">
+        <h3>📌 Infographics & Summaries</h3>
+        <p>Visual guides and concise summaries comparing key Qur’anic teachings with common Hadith-based interpretations.</p>
+      </div>
+      <div class="topic-card purple-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 2);">
+        <h3>📄 In-Depth Articles</h3>
+        <p>Explore articles like “Why the Qur’an Alone is Enough,” "The Case Against Hadith," and detailed analyses of Qur'anic verses.</p>
+      </div>
+      <div class="topic-card purple-strip animate-on-scroll" style="animation-delay: calc(var(--animation-delay-base) * 3);">
+        <h3>🎧 Audio/Video Lectures</h3>
+        <p>Listen to insightful lectures and watch compelling discussions on the sufficiency of the Qur'an.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about-us">
+  <div class="container">
+    <h2 class="animate-on-scroll">About Us</h2>
+    <p class="section-intro animate-on-scroll">We are a collective of truth-seeking believers united by the profound message of the Qur’an. Our mission is to promote the unadulterated message of Islam, free from sectarian divisions, man-made traditions, and external interpretations. We are not a sect, we do not follow any specific scholar blindly, and we operate independently, guided solely by the principles of the Qur'an — Allah's perfect and complete revelation. Our journey is a return to the straight path, inviting all to reflect on the divine words.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2 class="animate-on-scroll">Contact / Join Us</h2>
+    <p class="section-intro animate-on-scroll">Have questions, feedback, or want to connect with like-minded individuals? Reach out to us through the form below or join our growing community of Qur’an-alone believers. We look forward to hearing from you!</p>
+
+    <form>
+      <input type="text" placeholder="Your Name" required aria-label="Your Name" />
+      <input type="email" placeholder="Email Address" required aria-label="Email Address" />
+      <textarea rows="7" placeholder="Your Message" required aria-label="Your Message"></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <blockquote class="quote">
+    "And the Word of your Lord is complete in truth and justice. None can change His words; and He is the Hearer, the Knower."<br/>
+    — Qur’an 6:115
+  </blockquote>
+  <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">&copy; 2025 Islam by the Qur’an Alone. All rights reserved.</p>
+</footer>
+
+<button id="scrollToTopBtn" title="Go to top" aria-label="Scroll to top">&#9650;</button>
+
+<script>
+  // --- Mobile Menu Toggle ---
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+  mobileToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('show');
+    mobileToggle.textContent = mobileMenu.classList.contains('show') ? '\u2715' : '\u2630'; // X icon or Hamburger
+    mobileToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('show'));
+  });
+
+  // Close mobile menu when a link is clicked
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('show');
+      mobileToggle.textContent = '\u2630';
+      mobileToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // --- Smooth Scrolling for Anchor Links ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Smooth scroll to target
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
+
+          // Update URL hash without jumping
+          history.pushState(null, null, this.getAttribute('href'));
+      });
+  });
+
+  // --- Scroll-triggered Animations (Intersection Observer) ---
+  const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+  const observerOptions = {
+    root: null, // viewport
+    rootMargin: '0px',
+    threshold: 0.1 // Trigger when 10% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        entry.target.classList.add('visible'); // Add a class for specific styling if needed
+        observer.unobserve(entry.target); // Stop observing once animated
+      }
+    });
+  }, observerOptions);
+
+  animateElements.forEach(el => {
+    // Only apply if not already visible (e.g., above fold content)
+    if (el.getBoundingClientRect().top > window.innerHeight) {
+        el.style.animationPlayState = 'paused'; // Pause animations initially
+        observer.observe(el);
+    } else {
+        el.style.animationPlayState = 'running'; // Already in view, play immediately
+    }
+  });
+
+  // --- Active Nav Link on Scroll ---
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-menu a'); // Select all nav links
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100; // Offset for header height
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href').includes(current)) {
+        a.classList.add('active');
+      }
+    });
+
+    // Dynamic Header Styling on Scroll
+    const header = document.querySelector('header');
+    if (scrollY > 50) { // After scrolling 50px
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // --- Scroll to Top Button Functionality ---
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  window.addEventListener('scroll', function() {
+    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+      scrollToTopBtn.style.display = "block";
+    } else {
+      scrollToTopBtn.style.display = "none";
+    }
+  });
+
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  // --- Typing Effect for Tagline ---
+  const taglineElement = document.getElementById('tagline-text');
+  const taglineText = taglineElement.textContent; // Store original text
+  taglineElement.textContent = ''; // Clear text to start typing animation
+
+  function typeWriter() {
+    let i = 0;
+    const speed = 70; // typing speed in milliseconds
+
+    function type() {
+      if (i < taglineText.length) {
+        taglineElement.textContent += taglineText.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      }
+    }
+    type();
+  }
+
+  // Trigger typing animation after a small delay on page load
+  window.addEventListener('load', () => {
+    setTimeout(typeWriter, 500);
+  });
+
+</script>
+
+</body>
+</html>
