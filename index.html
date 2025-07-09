@@ -3,1092 +3,1678 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Islam by the Qur’an Alone</title>
+  <title>The Qur'an: The Pure Path - Premium Classic</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    /* CSS Variables for Theming - Refined Dark Aesthetic */
+    /* ========================================
+    PREMIUM CLASSIC WEBSITE
+    ========================================
+    Features:
+    - Elegant, classic aesthetic
+    - Subtle, performant animations
+    - Optimal mobile suitability
+    - Enhanced visibility
+    - All content preserved
+    ========================================
+    */
+
+    /* Premium Classic Color Palette */
     :root {
-      /* New Color Palette */
-      --background-dark: #0D0D0D; /* Deeper, richer black */
-      --background-medium: #1A1A1A; /* For cards and elevated surfaces */
-      --background-light: #2C2C2C; /* For interactive states */
-      --text-primary: #F0F0F0; /* Soft white for readability */
-      --text-secondary: #B0B0B0; /* Muted grey for supporting text */
-      --accent-gold: #C0A062; /* A more subtle, elegant gold */
-      --accent-teal: #008080; /* A deep, sophisticated teal for contrast */
-      --white: #ffffff;
-
-      /* Shadows & Borders */
-      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      --card-hover-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-      --border-color: rgba(192, 160, 98, 0.15); /* Faint gold border */
-
-      /* Layout & Animation */
-      --border-radius-lg: 1.25rem; /* Slightly larger radius */
-      --border-radius-full: 999px;
-      --animation-duration: 0.8s;
-      --animation-delay-base: 0.15s;
-      --z-index-modal: 2000;
-      --z-index-modal-backdrop: 1900;
+      --bg-primary: #0D0D0D; /* Dark charcoal */
+      --bg-secondary: #1A1A1A; /* Slightly lighter charcoal */
+      --bg-tertiary: #262626; /* Even lighter charcoal for contrast */
+      --bg-accent: #333333; /* For subtle highlights */
+      
+      /* Classic Gold & Silver Accents */
+      --color-gold-light: #FFD700; /* Bright gold */
+      --color-gold-dark: #B8860B; /* Darker, antique gold */
+      --color-silver-light: #E0E0E0; /* Light silver */
+      --color-silver-dark: #A9A9A9; /* Darker silver */
+      
+      /* Text Colors */
+      --text-primary: #F5F5F5; /* Off-white for main text */
+      --text-secondary: #B0B0B0; /* Lighter grey for secondary text */
+      --text-accent: var(--color-gold-light); /* Gold for accents */
+      
+      /* Glassmorphism Effects - More Subtle */
+      --glass-base: rgba(255, 255, 255, 0.05); /* Very subtle transparency */
+      --glass-border: rgba(255, 255, 255, 0.1); /* Slightly more visible border */
+      --glass-shadow: rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+      
+      /* Gradients - Subtle & Luxurious */
+      --gradient-header: linear-gradient(to bottom, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.7));
+      --gradient-button-gold: linear-gradient(135deg, var(--color-gold-light), var(--color-gold-dark));
+      --gradient-button-silver: linear-gradient(135deg, var(--color-silver-light), var(--color-silver-dark));
+      
+      /* Shadows - Elegant & Deep */
+      --shadow-deep: 0 10px 30px var(--glass-shadow);
+      --shadow-glow: 0 0 15px var(--color-gold-light);
+      
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      
+      /* Border Radius */
+      --radius-sm: 0.5rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      
+      /* Transitions */
+      --transition-fast: 0.2s ease-out;
+      --transition-normal: 0.4s ease-out;
+      --transition-slow: 0.6s ease-out;
+      
+      /* Z-index Layers */
+      --z-background: 0;
+      --z-content: 1;
+      --z-floating: 10;
+      --z-header: 100;
+      --z-modal: 1000;
     }
 
-    /* Reset & Base */
+    /* Reset & Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif; /* New font for body */
-      background-color: var(--background-dark);
-      /* Subtle pattern for texture */
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231A1A1A' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      color: var(--text-primary);
-      line-height: 1.8;
+    html {
       scroll-behavior: smooth;
       overflow-x: hidden;
-      position: relative;
     }
 
-    body.modal-open {
-        overflow: hidden;
-        padding-right: var(--scrollbar-width, 0px);
-    }
-
-    /* Custom Scrollbar for Webkit browsers */
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--background-dark);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--accent-gold);
-      border-radius: 6px;
-      border: 3px solid var(--background-dark);
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #D4B072;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Lora', serif; /* Elegant serif for headings */
-      font-weight: 600;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
       color: var(--text-primary);
-      letter-spacing: -0.01em;
+      line-height: 1.7;
+      overflow-x: hidden;
+      position: relative;
+      font-weight: 300;
     }
 
-    a, button {
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* --- Keyframe Animations --- */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes pulsate {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192, 160, 98, 0.4); }
-      70% { transform: scale(1.02); box-shadow: 0 0 0 20px rgba(192, 160, 98, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192, 160, 98, 0); }
-    }
-    @keyframes bounceScroll {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-12px); }
-      60% { transform: translateY(-6px); }
-    }
-
-    /* Scroll Progress Indicator */
-    .scroll-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 4px; /* Thinner for subtlety */
-        background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal));
-        z-index: 1100;
-        transition: width 0.1s linear;
-    }
-
-    /* Header */
-    header {
-      position: sticky;
+    /* Simple Background - Subtle Texture */
+    .classic-background {
+      position: fixed;
       top: 0;
-      z-index: 1000;
-      background: rgba(13, 13, 13, 0.75); /* Darker blur */
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-      animation: fadeIn var(--animation-duration) ease-out;
-      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: var(--z-background);
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(169, 169, 169, 0.02) 0%, transparent 50%);
+      opacity: 0.7;
+    }
+
+    /* Premium Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-gold-dark);
+      border-radius: 5px;
+      border: 2px solid var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-gold-light);
+    }
+
+    /* Classic Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .classic-gradient-text {
+      background: var(--gradient-button-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Premium Button System */
+    .btn-classic {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-normal);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      box-shadow: var(--shadow-deep);
+    }
+
+    .btn-primary-classic {
+      background: var(--gradient-button-gold);
+      color: var(--bg-primary);
+      border: 1px solid var(--color-gold-light);
+    }
+
+    .btn-primary-classic:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-deep), var(--shadow-glow);
+    }
+
+    .btn-secondary-classic {
+      background: var(--glass-base);
+      color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+    }
+
+    .btn-secondary-classic:hover {
+      background: var(--glass-border);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-deep);
+      border-color: var(--color-silver-light);
+    }
+
+    /* Premium Header */
+    .classic-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-header);
+      background: var(--gradient-header);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
+      transition: all var(--transition-normal);
+    }
+
+    .classic-header.scrolled {
+      background: var(--bg-tertiary);
+      box-shadow: var(--shadow-deep);
+      border-bottom-color: var(--color-gold-dark);
     }
 
     .header-content {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
-      transition: padding 0.3s ease;
+      justify-content: space-between;
+      padding: var(--space-md) var(--space-lg);
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .logo {
-      font-family: 'Lora', serif;
-      font-size: 2rem;
-      color: var(--accent-gold);
-      letter-spacing: 1px;
-      font-weight: 700;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.6);
-      transition: all 0.4s ease;
-    }
-
-    nav.desktop-nav {
-      display: flex;
-      gap: 2.5rem;
-    }
-
-    nav.desktop-nav a {
+    .classic-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 800;
       color: var(--text-primary);
-      font-weight: 500; /* Slightly lighter weight */
+      text-decoration: none;
+      transition: all var(--transition-normal);
       position: relative;
-      transition: all 0.3s ease;
-      padding-bottom: 6px;
-      font-size: 1.05rem;
     }
 
-    nav.desktop-nav a:hover, nav.desktop-nav a.active {
-      color: var(--accent-gold);
+    .classic-logo:hover {
+      color: var(--text-accent);
+      transform: scale(1.02);
+    }
+
+    /* Premium Navigation */
+    .classic-nav {
+      display: flex;
+      gap: var(--space-md);
+      list-style: none;
+    }
+
+    .nav-link-classic {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-normal);
+      position: relative;
+    }
+
+    .nav-link-classic:hover,
+    .nav-link-classic.active {
+      color: var(--text-accent);
       transform: translateY(-2px);
     }
 
-    nav.desktop-nav a::after {
+    .nav-link-classic::after {
       content: '';
       position: absolute;
+      bottom: -5px;
       left: 50%;
-      bottom: 0;
       width: 0;
       height: 2px;
-      background-color: var(--accent-gold);
-      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      background: var(--color-gold-light);
+      transition: all var(--transition-normal);
       transform: translateX(-50%);
     }
 
-    nav.desktop-nav a:hover::after, nav.desktop-nav a.active::after {
-      width: 100%;
+    .nav-link-classic:hover::after,
+    .nav-link-classic.active::after {
+      width: 80%;
     }
 
-    .mobile-toggle {
+    /* Mobile Menu Premium */
+    .mobile-toggle-classic {
       display: none;
-      font-size: 2rem;
-      color: var(--text-primary);
-      background: none;
-      border: none;
-      padding: 0.5rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-accent);
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: var(--space-sm);
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-deep);
     }
 
-    .mobile-menu {
+    .mobile-toggle-classic:hover {
+      background: var(--bg-accent);
+      transform: scale(1.05);
+    }
+
+    .mobile-menu-classic {
       position: absolute;
       top: 100%;
-      right: 2rem;
-      background: var(--background-medium);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius-lg);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-      overflow: hidden;
-      transform: scaleY(0.9) scaleX(0.95);
+      right: var(--space-md);
+      background: var(--bg-tertiary);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-deep);
+      min-width: 200px;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-      transform-origin: top right;
-      min-width: 250px;
+      transform: translateY(-10px) scale(0.95);
+      transition: all var(--transition-normal);
+      z-index: var(--z-header) - 1;
     }
 
-    .mobile-menu.show {
-      transform: scaleY(1) scaleX(1);
+    .mobile-menu-classic.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .mobile-menu-classic ul {
+      list-style: none;
+      padding: var(--space-md) 0;
+    }
+
+    .mobile-menu-classic li a {
+      display: block;
+      padding: var(--space-sm) var(--space-md);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+      border-left: 3px solid transparent;
+    }
+
+    .mobile-menu-classic li a:hover {
+      color: var(--text-accent);
+      background: var(--bg-accent);
+      border-left-color: var(--text-accent);
+    }
+
+    /* Premium Hero Section */
+    .classic-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    .hero-content-classic {
+      max-width: 1000px;
+      position: relative;
+      z-index: var(--z-content);
+    }
+
+    .hero-title-classic {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+
+    .hero-quote-classic {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      margin: var(--space-lg) 0;
+      padding: var(--space-md);
+      background: var(--glass-base);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--text-accent);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-deep);
+      color: var(--text-primary);
+    }
+
+    .hero-quote-classic::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 4rem;
+      color: var(--text-accent);
+      opacity: 0.2;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-buttons-classic {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--space-lg);
+    }
+
+    /* Premium Scroll Indicator */
+    .scroll-indicator-classic {
+      position: absolute;
+      bottom: var(--space-md);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+      color: var(--text-secondary);
+    }
+
+    .scroll-indicator-classic .arrow {
+      font-size: 1.5rem;
+      color: var(--text-accent);
+    }
+
+    /* Premium Sections */
+    .classic-section {
+      padding: var(--space-xl) var(--space-lg);
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto var(--space-lg);
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      overflow: hidden; /* Ensure content stays within bounds */
+      z-index: var(--z-content);
+      box-shadow: var(--shadow-deep);
+    }
+
+    .section-header-classic {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-title-classic {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
+      position: relative;
+    }
+
+    .section-title-classic::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 100px;
+      height: 4px;
+      background: var(--color-gold-light);
+      border-radius: 2px;
+      transform: translateX(-50%);
+    }
+
+    .section-description-classic {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* Premium Card Grid */
+    .classic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minmax for better mobile fit */
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+      position: relative;
+    }
+
+    /* Ultra Premium Cards - Subtle Animations */
+    .classic-card {
+      background: var(--glass-base);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-normal);
+      cursor: pointer;
+      box-shadow: var(--shadow-deep);
+      color: var(--text-primary);
+      text-align: center;
+      
+      /* Initial state for animation */
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+
+    /* Animation when visible */
+    .classic-card.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Subtle hover effects */
+    .classic-card:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: var(--shadow-deep), var(--shadow-glow);
+      border-color: var(--color-gold-light);
+    }
+
+    .card-icon-classic {
+      font-size: 3rem;
+      color: var(--text-accent);
+      margin-bottom: var(--space-sm);
+      display: block;
+      transition: all var(--transition-fast);
+    }
+
+    .classic-card:hover .card-icon-classic {
+      transform: scale(1.05);
+    }
+
+    .card-title-classic {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-xs);
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .card-description-classic {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 0.95rem; /* Slightly smaller for mobile suitability */
+      font-weight: 300;
+    }
+
+    /* Premium PDF Card */
+    .pdf-card-classic {
+      background: var(--gradient-button-gold);
+      color: var(--bg-primary);
+      border: 1px solid var(--color-gold-light);
+    }
+
+    .pdf-card-classic .card-icon-classic {
+      color: var(--bg-primary);
+      opacity: 0.8;
+    }
+
+    .pdf-card-classic .card-title-classic,
+    .pdf-card-classic .card-description-classic {
+      color: var(--bg-primary);
+    }
+
+    .pdf-card-classic:hover {
+      box-shadow: var(--shadow-deep), var(--shadow-glow);
+    }
+
+    /* Premium FAQ Section */
+    .faq-item-classic {
+      background: var(--glass-base);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-md);
+      overflow: hidden;
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-deep);
+    }
+
+    .faq-item-classic:hover {
+      border-color: var(--color-gold-light);
+      box-shadow: var(--shadow-deep), var(--shadow-glow);
+      transform: translateY(-3px);
+    }
+
+    .faq-question-classic {
+      padding: var(--space-md);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all var(--transition-fast);
+      background: transparent;
+      position: relative;
+    }
+
+    .faq-question-classic:hover {
+      background: var(--glass-border);
+    }
+
+    .faq-icon-classic {
+      font-size: 1.2rem;
+      color: var(--text-accent);
+      transition: transform var(--transition-fast);
+    }
+
+    .faq-item-classic.open .faq-icon-classic {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer-classic {
+      padding: 0 var(--space-md) var(--space-md);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+      border-top: 1px solid var(--glass-border);
+      margin-top: var(--space-sm);
+      display: none;
+      font-weight: 300;
+    }
+
+    .faq-item-classic.open .faq-answer-classic {
+      display: block;
+    }
+
+    /* Premium Footer */
+    .classic-footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--glass-border);
+      padding: var(--space-xl) var(--space-lg) var(--space-lg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-deep);
+    }
+
+    .footer-quote-classic {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto var(--space-md);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .footer-copyright-classic {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    /* Premium Floating Elements */
+    .fab-classic {
+      position: fixed;
+      bottom: var(--space-md);
+      right: var(--space-md);
+      width: 50px;
+      height: 50px;
+      background: var(--gradient-button-gold);
+      border: none;
+      border-radius: 50%;
+      color: var(--bg-primary);
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-deep);
+      transition: all var(--transition-normal);
+      z-index: var(--z-floating);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.9);
+    }
+
+    .fab-classic.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .fab-classic:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: var(--shadow-deep), var(--shadow-glow);
+    }
+
+    /* Premium Modal System */
+    .modal-overlay-classic {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8); /* Slightly less opaque */
+      backdrop-filter: blur(15px);
+      z-index: var(--z-modal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-normal);
+    }
+
+    .modal-overlay-classic.show {
       opacity: 1;
       visibility: visible;
     }
 
-    .mobile-menu ul { list-style: none; }
-    .mobile-menu li { padding: 1rem 2rem; border-bottom: 1px solid var(--border-color); }
-    .mobile-menu li:last-child { border-bottom: none; }
-    .mobile-menu li:hover { background-color: var(--background-light); }
-    .mobile-menu li a { color: var(--text-primary); font-weight: 600; font-size: 1.1rem; }
-    .mobile-menu li a:hover { color: var(--accent-gold); }
-
-
-    @media (max-width: 1024px) {
-      nav.desktop-nav { display: none; }
-      .mobile-toggle { display: block; }
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, rgba(0, 128, 128, 0.1), var(--background-dark) 60%),
-                  radial-gradient(ellipse at bottom left, rgba(192, 160, 98, 0.15), transparent 70%);
-      color: var(--white);
-      padding: 10rem 2rem 8rem;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 90vh;
-      border-bottom: 2px solid var(--border-color);
-    }
-
-    .hero-content {
-      max-width: 1000px;
-      position: relative;
-      z-index: 1;
-      animation: scaleIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .hero-content h1 {
-      font-size: 5.5rem;
-      line-height: 1.1;
-      margin-bottom: 2rem;
-      color: var(--white);
-      font-weight: 700;
-      text-shadow: 0 5px 25px rgba(0,0,0,0.7);
-    }
-
-    .hero-content .quote {
-      font-size: 1.5rem;
-      font-family: 'Lora', serif;
-      font-style: italic;
-      margin: 3.5rem 0;
-      opacity: 1;
-      font-weight: 400;
-      background: rgba(0,0,0,0.35);
-      padding: 2rem 2.5rem;
-      border-radius: 1.5rem;
-      border-left: 8px solid var(--accent-gold);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 4rem;
-    }
-
-    .btn {
-      padding: 1.2rem 3rem;
-      border-radius: var(--border-radius-full);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: 1.1rem;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border: 2px solid transparent;
-    }
-
-    .btn-primary {
-      background-color: var(--accent-gold);
-      color: var(--background-dark);
-      box-shadow: 0 8px 30px rgba(192, 160, 98, 0.3);
-    }
-
-    .btn-primary:hover {
-      background-color: #D4B072;
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 12px 35px rgba(192, 160, 98, 0.5);
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      border-color: var(--white);
-      color: var(--white);
-    }
-
-    .btn-outline:hover {
-      background-color: rgba(255,255,255,0.1);
-      transform: translateY(-6px) scale(1.03);
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%);
-      color: var(--white); font-size: 1rem;
-      display: flex; flex-direction: column; align-items: center;
-      gap: 0.6rem; opacity: 0.85;
-      animation: fadeIn 1s ease-out 1s both;
-    }
-    .scroll-indicator .arrow {
-      font-size: 2.2rem;
-      line-height: 1;
-      animation: bounceScroll 2.2s infinite;
-    }
-
-    /* Common Section Styling */
-    section {
-      padding: 9rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    h2 {
-      font-size: 4rem;
-      text-align: center;
-      margin-bottom: 5.5rem;
-      position: relative;
-      z-index: 1;
-      color: var(--text-primary);
-      animation: fadeIn var(--animation-duration) ease-out backwards;
-      font-weight: 700;
-    }
-
-    h2::after {
-      content: '';
-      display: block;
-      width: 100px; height: 5px;
-      background: linear-gradient(90deg, var(--accent-teal), var(--accent-gold));
-      margin: 2rem auto 0;
-      border-radius: 3px;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-    h2.visible::after {
-        transform: scaleX(1);
-    }
-
-    .section-intro {
-      font-size: 1.4rem;
-      max-width: 1000px;
-      margin: 2rem auto 5rem;
-      text-align: center;
-      color: var(--text-secondary);
-      line-height: 1.9;
-      font-family: 'Lora', serif;
-      animation: fadeIn var(--animation-duration) ease-out backwards var(--animation-delay-base);
-    }
-
-    .grid-layout {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Larger base size */
-      gap: 3rem;
-    }
-
-    .topic-card, .read-all-card {
-      background: var(--background-medium);
-      border-radius: var(--border-radius-lg);
-      padding: 2.8rem;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-      animation: scaleIn var(--animation-duration) ease-out backwards;
-    }
-
-    .topic-card:hover, .read-all-card:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: var(--card-hover-shadow);
-      border-color: var(--accent-gold);
-    }
-
-    .topic-card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--accent-gold);
-      font-weight: 700;
-    }
-    
-    .topic-card p {
-      color: var(--text-secondary);
-      line-height: 1.8;
-      font-size: 1.05rem;
-    }
-
-    /* Enhanced PDF Card Styling */
-    .read-all-card {
-        background: linear-gradient(135deg, var(--accent-teal), var(--accent-gold));
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        cursor: pointer;
-        color: var(--background-dark);
-        position: relative; /* For icon positioning */
-        overflow: hidden;
-        border: 2px solid transparent; /* Start with transparent border */
-    }
-
-    .read-all-card::before {
-        content: '\1F4C4'; /* Unicode for document/file icon */
-        font-family: 'Font Awesome 5 Free', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; /* Fallback for icon */
-        font-weight: 900; /* For Font Awesome solid icon */
-        font-size: 4rem; /* Larger icon */
-        color: rgba(0, 0, 0, 0.2); /* Subtle dark icon */
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 0;
-        transition: transform 0.4s ease-out, color 0.4s ease;
-    }
-
-    .read-all-card:hover::before {
-        transform: scale(1.1) rotate(5deg);
-        color: rgba(0, 0, 0, 0.3);
-    }
-
-    .read-all-card h3 {
-        color: var(--background-dark);
-        font-size: 2rem;
-        font-weight: 700;
-        z-index: 1; /* Keep text above icon */
-    }
-    .read-all-card p {
-        color: var(--background-dark);
-        opacity: 0.9;
-        font-weight: 500;
-        margin-top: 0.5rem;
-        z-index: 1; /* Keep text above icon */
-    }
-    .read-all-card:hover {
-        border-color: var(--white);
-        transform: translateY(-12px) scale(1.02); /* Maintain existing hover */
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); /* Maintain existing hover */
-    }
-
-
-    /* Accordion FAQ */
-    details {
-      background: var(--background-medium);
-      padding: 1.8rem 2.2rem;
-      border-radius: var(--border-radius-lg);
-      margin-bottom: 1.8rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
-      cursor: pointer;
-      border: 1px solid var(--border-color);
-      transition: all 0.3s ease;
-      animation: fadeIn var(--animation-duration) ease-out backwards;
-    }
-    details:hover {
-      box-shadow: 0 12px 30px rgba(0,0,0,0.65);
-      border-color: var(--accent-gold);
-      transform: translateY(-4px);
-    }
-
-    summary {
-      font-size: 1.35rem;
-      font-weight: 600;
-      cursor: pointer;
-      list-style: none;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: 'Lora', serif;
-    }
-    summary::-webkit-details-marker { display: none; }
-    summary::after {
-      content: '\002B';
-      font-size: 2rem;
-      color: var(--accent-gold);
-      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-    details[open] summary::after { transform: rotate(45deg); }
-    details p {
-      padding-top: 1.5rem;
-      font-size: 1.15rem;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--border-color);
-      margin-top: 1.5rem;
-      animation: fadeIn 0.5s ease-out;
-    }
-
-    /* Contact Form */
-    form {
-      background: var(--background-medium);
-      padding: 3.5rem;
-      border-radius: var(--border-radius-lg);
-      box-shadow: var(--card-shadow);
-      border: 1px solid var(--border-color);
-      max-width: 750px !important;
-      margin: 0 auto;
-      animation: scaleIn var(--animation-duration) ease-out backwards;
-    }
-    form input, form textarea {
-      display: block; width: 100%;
-      margin-bottom: 2rem;
-      padding: 1.2rem;
-      border: 1px solid var(--border-color);
-      border-radius: 0.85rem;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.1rem;
-      background: var(--background-dark);
-      color: var(--text-primary);
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    form input:focus, form textarea:focus {
-      outline: none;
-      border-color: var(--accent-gold);
-      box-shadow: 0 0 0 4px rgba(192, 160, 98, 0.25);
-    }
-    form button[type="submit"] {
-      width: 100%; padding: 1.4rem;
-      font-size: 1.2rem;
-      animation: pulsate 2.5s infinite;
-    }
-    form button[type="submit"]:hover { animation: none; }
-
-    /* Footer */
-    footer {
-      background-color: var(--background-dark);
-      color: var(--text-primary);
-      text-align: center;
-      padding: 4rem 2rem;
-      margin-top: 7rem;
-      border-top: 4px double var(--border-color);
-      box-shadow: inset 0 8px 25px rgba(0,0,0,0.6);
-    }
-
-    footer .quote {
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 1.3rem;
-      opacity: 1;
+    .modal-content-classic {
+      background: var(--bg-tertiary);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
       max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.9;
-      font-weight: 400;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.9) translateY(20px);
+      transition: transform var(--transition-normal);
+      box-shadow: var(--shadow-deep);
       color: var(--text-primary);
     }
-    footer .quote strong { color: var(--accent-gold); }
 
-
-    /* Scroll to top button */
-    #scrollToTopBtn {
-      display: none; position: fixed;
-      bottom: 35px; right: 35px;
-      z-index: 999; border: none; outline: none;
-      background-color: var(--accent-gold);
-      color: var(--background-dark);
-      cursor: pointer; padding: 18px 21px;
-      border-radius: 50%; font-size: 1.4rem;
-      box-shadow: 0 6px 20px rgba(192, 160, 98, 0.4);
-      transition: all 0.3s ease;
-    }
-    #scrollToTopBtn:hover {
-      background-color: #D4B072;
-      box-shadow: 0 10px 25px rgba(192, 160, 98, 0.6);
-      transform: translateY(-5px);
+    .modal-overlay-classic.show .modal-content-classic {
+      transform: scale(1) translateY(0);
     }
 
-    /* Card Modal Styles */
-    .card-modal-overlay {
-        position: fixed; top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-        z-index: var(--z-index-modal-backdrop);
-        opacity: 0; visibility: hidden;
-        transition: opacity 0.4s ease, visibility 0.4s ease;
-        display: flex; justify-content: center; align-items: center;
+    .modal-content-classic h2 {
+      font-size: 1.8rem;
+      margin-bottom: var(--space-md);
+      color: var(--text-accent);
+      text-align: center;
     }
 
-    .card-modal-overlay.show { opacity: 1; visibility: visible; }
-    .card-modal-content {
-        background: var(--background-medium);
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius-lg);
-        max-width: 850px; width: 92%;
-        max-height: 90vh; overflow-y: auto;
-        padding: 3.5rem; position: relative;
-        transform: scale(0.85); opacity: 0;
-        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease;
-        box-shadow: var(--card-hover-shadow);
-        z-index: var(--z-index-modal);
-        color: var(--text-primary);
-    }
-    .card-modal-overlay.show .card-modal-content { transform: scale(1); opacity: 1; }
-    .card-modal-content h3 {
-        font-size: 2.5rem; margin-bottom: 2rem;
-        color: var(--accent-gold); text-align: center;
-        font-weight: 700;
-    }
-    .card-modal-content p {
-        font-size: 1.2rem; line-height: 1.9;
-        margin-bottom: 1.2rem; color: var(--text-secondary);
-    }
-     .card-modal-content strong { color: var(--text-primary); font-weight: 600; }
-    .card-modal-close {
-        position: absolute; top: 1.8rem; right: 1.8rem;
-        background: var(--background-light);
-        color: var(--text-primary); border: none; border-radius: 50%;
-        width: 44px; height: 44px; font-size: 2rem; line-height: 1;
-        display: flex; justify-content: center; align-items: center;
-        cursor: pointer; transition: all 0.3s ease;
-    }
-    .card-modal-close:hover {
-        background-color: var(--accent-gold); color: var(--background-dark);
-        transform: rotate(90deg);
+    .modal-content-classic p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: var(--space-sm);
+      color: var(--text-secondary);
+      font-weight: 300;
     }
 
-    /* Media Queries for Responsiveness */
-    @media (max-width: 768px) {
-      h1 { font-size: 3.5rem !important; }
-      h2 { font-size: 2.8rem; }
-      .section-intro { font-size: 1.2rem; }
-      .container { padding: 0 1.5rem; }
-      section { padding: 7rem 0; }
-      .grid-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .modal-close-classic {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      background: var(--bg-accent);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      font-size: 1.2rem;
     }
 
-    @media (max-width: 576px) {
-      h1 { font-size: 2.8rem !important; }
-      .hero-content .quote { font-size: 1.2rem; }
-      h2 { font-size: 2.2rem; }
-      .logo { font-size: 1.6rem; }
+    .modal-close-classic:hover {
+      background: var(--color-gold-light);
+      color: var(--bg-primary);
+      transform: rotate(90deg) scale(1.05);
+    }
+
+    /* Premium Scroll Progress */
+    .scroll-progress-classic {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--color-gold-light);
+      z-index: var(--z-header);
+      transition: width 0.1s linear;
+      box-shadow: 0 0 8px var(--color-gold-light);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .classic-nav {
+        display: none;
+      }
+      
+      .mobile-toggle-classic {
+        display: block;
+      }
+      
+      .header-content {
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      .classic-logo {
+        font-size: 1.6rem;
+      }
+
+      .classic-hero {
+        padding: var(--space-lg) var(--space-md);
+      }
+
+      .hero-title-classic {
+        font-size: clamp(2rem, 5vw, 4rem);
+      }
+
+      .hero-quote-classic {
+        font-size: 1.1rem;
+        padding: var(--space-md);
+      }
+
+      .hero-buttons-classic {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+      
+      .btn-classic {
+        width: 90%;
+        max-width: 300px;
+        padding: 0.8rem 2rem;
+        font-size: 0.95rem;
+      }
+
+      .classic-section {
+        padding: var(--space-lg) var(--space-md);
+      }
+      
+      .section-title-classic {
+        font-size: clamp(1.8rem, 4.5vw, 3.5rem);
+      }
+
+      .section-description-classic {
+        font-size: 1rem;
+      }
+
+      .classic-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+      
+      .classic-card {
+        padding: var(--space-md);
+      }
+
+      .card-title-classic {
+        font-size: 1.3rem;
+      }
+
+      .card-description-classic {
+        font-size: 0.9rem;
+      }
+
+      .faq-question-classic {
+        font-size: 1rem;
+        padding: var(--space-sm);
+      }
+
+      .faq-answer-classic {
+        font-size: 0.9rem;
+        padding: 0 var(--space-sm) var(--space-sm);
+      }
+
+      .modal-content-classic {
+        padding: var(--space-md);
+        width: 95%;
+      }
+
+      .modal-content-classic h2 {
+        font-size: 1.5rem;
+      }
+
+      .modal-content-classic p {
+        font-size: 0.95rem;
+      }
+
+      .modal-close-classic {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+
+      .fab-classic {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        bottom: var(--space-md);
+        right: var(--space-md);
+      }
+    }
+
+    /* Performance Optimizations */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Simple Background -->
+  <div class="classic-background"></div>
 
-<div class="scroll-progress" id="scrollProgress"></div>
+  <!-- Scroll Progress -->
+  <div class="scroll-progress-classic" id="scrollProgress"></div>
 
-<header class="header">
-  <div class="container header-content">
-    <div class="logo">The Qur'an : The Pure Path</div>
-
-    <nav class="desktop-nav">
-      <a href="#quran-sufficient">Quran is Sufficient</a>
-      <a href="#hadith-contradicts-quran">Hadith vs. Quran</a>
-      <a href="#hadith-contradicts-hadith">Contradictions</a>
-      <a href="#hadith-attack-prophet">Prophet's Character</a>
-      <a href="#problematic-hadiths">Problematic Hadiths</a>
-      <a href="#quran-prohibits-hadith">Quran Prohibits Hadith</a>
-      <a href="#hadith-prohibits-hadith">Hadith Prohibits Hadith</a>
-      <a href="#faq">FAQs</a>
-      <a href="#about-us">About Us</a>
-    </nav>
-
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">&#9776;</button>
-  </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#quran-sufficient">Quran is Sufficient</a></li>
-      <li><a href="#hadith-contradicts-quran">Hadith vs. Quran</a></li>
-      <li><a href="#hadith-contradicts-hadith">Contradictions</a></li>
-      <li><a href="#hadith-attack-prophet">Prophet's Character</a></li>
-      <li><a href="#problematic-hadiths">Problematic Hadiths</a></li>
-      <li><a href="#quran-prohibits-hadith">Quran Prohibits Hadith</a></li>
-      <li><a href="#hadith-prohibits-hadith">Hadith Prohibits Hadith</a></li>
-      <li><a href="#faq">FAQs</a></li>
-      <li><a href="#about-us">About Us</a></li>
-    </ul>
-  </div>
-</header>
-
-<main>
-
-<section class="hero">
-  <div class="container hero-content">
-    <h1>Islam: Pure & Simple</h1>
-    <blockquote class="quote">
-      “And We have sent down to you the Book as a clarification for all things, and as a guidance and mercy and good tidings for those who have submitted.”<br/>
-      <strong>— Qur’an 16:89</strong>
-    </blockquote>
-    <div class="hero-buttons">
-      <a href="#quran-sufficient" class="btn btn-primary">Discover the Proof</a>
-      <a href="#faq" class="btn btn-outline">Ask a Question</a>
+  <!-- Premium Header -->
+  <header class="classic-header" id="header">
+    <div class="header-content">
+      <a href="#" class="classic-logo">The Qur'an: The Pure Path</a>
+      
+      <nav class="classic-nav" id="nav">
+        <a href="#quran-sufficient" class="nav-link-classic">Quran is Sufficient</a>
+        <a href="#hadith-contradicts-quran" class="nav-link-classic">Hadith vs. Quran</a>
+        <a href="#hadith-contradicts-hadith" class="nav-link-classic">Contradictions</a>
+        <a href="#hadith-attack-prophet" class="nav-link-classic">Prophet\'s Character</a>
+        <a href="#problematic-hadiths" class="nav-link-classic">Problematic Hadiths</a>
+        <a href="#quran-prohibits-hadith" class="nav-link-classic">Quran Prohibits Hadith</a>
+        <a href="#hadith-prohibits-hadith" class="nav-link-classic">Hadith Prohibits Hadith</a>
+        <a href="#faq" class="nav-link-classic">FAQs</a>
+        <a href="#about-us" class="nav-link-classic">About Us</a>
+      </nav>
+      
+      <button class="mobile-toggle-classic" id="mobileToggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-  </div>
-  <div class="scroll-indicator">
-    <span class="arrow">&#x2193;</span>
-  </div>
-</section>
-
-<section id="quran-sufficient">
-  <div class="container">
-    <h2 class="animate-on-scroll">The Qur'an is Sufficient</h2>
-    <p class="section-intro animate-on-scroll">Allah has given us His final revelation as a perfect and complete guide. It is divinely preserved, fully detailed, and stands alone as the sole authority for guidance, leaving no need for external sources of religious law.</p>
-    <div class="grid-layout">
-      <div class="topic-card animate-on-scroll" data-modal-title="The Qur'an: Fully Detailed" data-modal-content="<p>The Qur'an itself declares its comprehensive nature. Allah proclaims: <strong>'We have neglected nothing in the Book.' (Qur’an 6:38)</strong> and <strong>'A Book whose verses have been perfected and then detailed from one who is All-Wise and All-Aware.' (Qur’an 11:1)</strong>. This divine assertion confirms that all principles of faith, law, and morality required for guidance are contained within its pages. To claim it needs another book to be understood is to question the wisdom and completeness of Allah's own words.</p>">
-        <h3>Fully Detailed</h3>
-        <p>"A Book whose verses have been perfected and then detailed..." (11:1)</p>
-      </div>
-      <div class="topic-card animate-on-scroll" data-modal-title="The Qur'an: Divinely Preserved" data-modal-content="<p>The promise of Allah's preservation is exclusive to the Qur'an: <strong>'Indeed, it is We who sent down the Reminder (the Qur'an) and indeed, We will be its guardian.' (Qur’an 15:9)</strong>. No other text, including collections of Hadith compiled centuries later by fallible men, carries this divine guarantee. This makes the Qur'an the only 100% reliable and pristine source of Islam, unchanged and uncorrupted through time.</p>">
-        <h3>Divinely Preserved</h3>
-        <p>"Indeed, it is We who sent down the Reminder and indeed, We will be its guardian." (15:9)</p>
-      </div>
-      <div class="topic-card animate-on-scroll" data-modal-title="The Only Authority" data-modal-content="<p>Allah instructs us to seek judgment from no other source: <strong>'Shall I seek other than Allah as a judge, when He has sent down to you the Book explained in detail?' (Qur’an 6:114)</strong>. This verse establishes the Qur'an as the ultimate and sole criterion (Al-Furqan) for truth. Elevating any other source to the level of divine law is a form of shirk (associating partners with God) in legislation, which the Qur'an strictly forbids.</p>">
-        <h3>The Only Authority</h3>
-        <p>"Shall I seek other than Allah as a judge, when He has sent down to you the Book explained in detail?" (6:114)</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1tjscYL6-wesUQxQntH0kzANqq9ngEMCx/view?usp=drivesdk" target="_blank" class="read-all-card animate-on-scroll">
-        <h3>Read All Proofs</h3>
-        <p>Open PDF Document</p>
-      </a>
+    
+    <div class="mobile-menu-classic" id="mobileMenu">
+      <ul>
+        <li><a href="#quran-sufficient">Quran is Sufficient</a></li>
+        <li><a href="#hadith-contradicts-quran">Hadith vs. Quran</a></li>
+        <li><a href="#hadith-contradicts-hadith">Contradictions</a></li>
+        <li><a href="#hadith-attack-prophet">Prophet\'s Character</a></li>
+        <li><a href="#problematic-hadiths">Problematic Hadiths</a></li>
+        <li><a href="#quran-prohibits-hadith">Quran Prohibits Hadith</a></li>
+        <li><a href="#hadith-prohibits-hadith">Hadith Prohibits Hadith</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#about-us">About Us</a></li>
+      </ul>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="hadith-contradicts-quran">
-  <div class="container">
-    <h2 class="animate-on-scroll">Hadith Contradicts The Qur'an</h2>
-    <p class="section-intro animate-on-scroll">When secondary sources (Hadith) are placed next to the Qur'an, numerous direct contradictions emerge. This demonstrates their human origin and fallibility, as God's words cannot be inconsistent.</p>
-    <div class="grid-layout">
-      <div class="topic-card animate-on-scroll" data-modal-title="Punishment for Adultery" data-modal-content="<p><strong>The Qur'an:</strong> The punishment for unlawful sexual intercourse is explicitly stated as one hundred lashes for both the man and the woman. <strong>'The female adulterer and the male adulterer, lash each one of them with a hundred lashes...' (Qur’an 24:2)</strong>. This is a clear and merciful law.<p><p><strong>The Hadith:</strong> Hadith literature introduces the brutal punishment of stoning to death (rajm), a practice from pre-Islamic and other traditions. This directly violates and replaces the specific, legislated punishment found in God's Book.</p>">
-        <h3>Adultery Punishment</h3>
-        <p>Qur'an (24:2) commands 100 lashes. Hadith command stoning to death.</p>
+  <!-- Premium Hero Section -->
+  <section class="classic-hero" id="hero">
+    <div class="hero-content-classic">
+      <h1 class="hero-title-classic">Islam: Pure & Simple</h1>
+      <blockquote class="hero-quote-classic">
+        "And We have sent down to you the Book as a clarification for all things, and as a guidance and mercy and good tidings for those who have submitted."<br/>
+        <strong>— Qur\'an 16:89</strong>
+      </blockquote>
+      <div class="hero-buttons-classic">
+        <a href="#quran-sufficient" class="btn-classic btn-primary-classic">
+          <i class="fas fa-book-open"></i>
+          Discover the Proof
+        </a>
+        <a href="#faq" class="btn-classic btn-secondary-classic">
+          <i class="fas fa-question-circle"></i>
+          Ask a Question
+        </a>
       </div>
-      <div class="topic-card animate-on-scroll" data-modal-title="Apostasy (Leaving Islam)" data-modal-content="<p><strong>The Qur'an:</strong> The Qur'an guarantees freedom of religion with its timeless principle: <strong>'There shall be no compulsion in [acceptance of] the religion.' (Qur’an 2:256)</strong>. It states that the consequence for disbelief is with God in the Hereafter, not a worldly punishment.</p><p><strong>The Hadith:</strong> Certain widely-accepted Hadith command death for anyone who leaves the religion of Islam (e.g., 'Whoever changes his religion, kill him.'). This directly contradicts the Qur'an's core principle of religious freedom.</p>">
-        <h3>Apostasy Penalty</h3>
-        <p>Qur'an (2:256) states "No compulsion in religion." Hadith command death for apostates.</p>
-      </div>
-      <div class="topic-card animate-on-scroll" data-modal-title="Inheritance for Prophets" data-modal-content="<p><strong>The Qur'an:</strong> The Qur'an's laws of inheritance (Surah 4) are universal and apply to all believers. It gives examples of prophets inheriting from other prophets, such as Solomon inheriting from David (27:16) and Zachariah praying for an heir to inherit from him (19:6).</p><p><strong>The Hadith:</strong> A famous hadith claims, 'We, the Prophets, do not leave inheritance. Whatever we leave is charity.' This narration was used to dispossess the Prophet's own family of their rightful inheritance, and it stands in direct opposition to the principles and examples set in the Qur'an.</p>">
-        <h3>Inheritance of Prophets</h3>
-        <p>Qur'an (27:16, 19:6) shows prophets inherit. Hadith claims prophets leave no inheritance.</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1tlaKxkXcUEqoYpmjzJBFo7Wc4wnB_w8J/view?usp=drivesdk" target="_blank" class="read-all-card animate-on-scroll">
-        <h3>Read All Contradictions</h3>
-        <p>Open PDF Document</p>
-      </a>
     </div>
-  </div>
-</section>
+    <div class="scroll-indicator-classic">
+      <span>Scroll to explore</span>
+      <i class="fas fa-chevron-down arrow"></i>
+    </div>
+  </section>
 
-<section id="hadith-contradicts-hadith">
-    <div class="container">
-        <h2 class="animate-on-scroll">Hadith Contradicts Hadith</h2>
-        <p class="section-intro animate-on-scroll">The Hadith collections are filled with internal contradictions, where one "authentic" narration says one thing and another "authentic" narration says the complete opposite. This is a clear sign of human error and unreliability.</p>
-        <div class="grid-layout">
-            <div class="topic-card animate-on-scroll" data-modal-title="Ablution (Wudu)" data-modal-content="<p><strong>Contradiction:</strong> How does performing certain acts affect one's state of ablution (wudu)?<p><strong>Narration 1:</strong> Some hadith state that eating food cooked over a fire breaks wudu and requires it to be performed again.</p><p><strong>Narration 2:</strong> Other equally authentic hadith state that the Prophet ate cooked meat and then prayed without performing a new wudu. These internal clashes on basic daily rituals create confusion that is absent in the Qur'an.</p>">
-                <h3>Ablution after Cooked Food</h3>
-                <p>One hadith says eating cooked food breaks wudu. Another says the Prophet ate and prayed without new wudu.</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="Beginning of Creation" data-modal-content="<p><strong>Contradiction:</strong> On which day did God begin creation?</p><p><strong>Narration 1 (Sahih Muslim):</strong> A hadith from Abu Hurayra details creation starting on a Saturday and ending on a Friday.</p><p><strong>Critique by Hadith Scholars:</strong> Major hadith scholars like Ibn Kathir and Al-Bukhari himself rejected this hadith, stating it contradicts the Qur'an (which describes creation in 'six days') and likely comes from Jewish/Christian traditions (Isra'iliyat). If scholars cannot agree on the authenticity of a hadith in their own most trusted book, how can an average person rely on it?</p>">
-                <h3>The Day Creation Began</h3>
-                <p>One "authentic" hadith says creation started on Saturday. Top scholars reject it as false.</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="Fasting while Traveling" data-modal-content="<p><strong>Contradiction:</strong> Should a person fast during Ramadan if they are traveling?</p><p><strong>Narration 1:</strong> Some hadith narrate the Prophet saying it is 'not an act of righteousness to fast while on a journey.'</p><p><strong>Narration 2:</strong> Other hadith narrate that the Prophet himself fasted on some journeys, and that companions would fast while others would not, and neither group found fault with the other. This leaves the believer with a direct contradiction on a pillar of Islam, a problem solved by the Qur'an's clear guidance (2:184-185), which gives the choice to the individual.</p>">
-                <h3>Fasting While Traveling</h3>
-                <p>Some hadith forbid fasting on a journey. Others show the Prophet and companions doing it.</p>
-            </div>
-            <a href="https://drive.google.com/file/d/1ts1Qb_jrywNbU7QWbsHB1s0-gSNEoZAe/view?usp=drivesdk" target="_blank" class="read-all-card animate-on-scroll">
-                <h3>Read All Internal Conflicts</h3>
-                <p>Open PDF Document</p>
-            </a>
+  <!-- Main Content -->
+  <main>
+    <!-- Quran is Sufficient Section -->
+    <section class="classic-section" id="quran-sufficient">
+      <div class="section-header-classic">
+        <h2 class="section-title-classic">The Qur\'an is Sufficient</h2>
+        <p class="section-description-classic">
+          Allah has given us His final revelation as a perfect and complete guide. It is divinely preserved, fully detailed, and stands alone as the sole authority for guidance, leaving no need for external sources of religious law.
+        </p>
+      </div>
+      
+      <div class="classic-grid">
+        <div class="classic-card" data-modal="fully-detailed">
+          <i class="fas fa-book card-icon-classic"></i>
+          <h3 class="card-title-classic">Fully Detailed</h3>
+          <p class="card-description-classic">"A Book whose verses have been perfected and then detailed..." (11:1)</p>
         </div>
-    </div>
-</section>
-
-<section id="hadith-attack-prophet">
-    <div class="container">
-        <h2 class="animate-on-scroll">Hadith Attack Prophet's Character</h2>
-        <p class="section-intro animate-on-scroll">The Qur'an describes the Prophet Muhammad as having the "most exalted character" (68:4). However, many hadith, accepted as authentic, portray him in a manner that is inconsistent with this divine praise, depicting him as forgetful, violent, or even bewitched.</p>
-        <div class="grid-layout">
-            <div class="topic-card animate-on-scroll" data-modal-title="Prophet Under a Magic Spell" data-modal-content="<p><strong>The Qur'an:</strong> The Qur'an states that disbelievers accused the Prophet of being 'a man bewitched' (17:47), and Allah defends him against this slander. He is protected by God.</p><p><strong>The Hadith (Bukhari):</strong> An "authentic" hadith claims the Prophet was successfully put under a magic spell by a Jew for many months, causing him to be confused, forgetful, and imagine he had done things which he had not. This narration validates the slander of the disbelievers and contradicts the Qur'an's portrayal of a divinely protected messenger.</p>">
-                <h3>Prophet Under Magic</h3>
-                <p>Qur'an (17:47) refutes the slander that the Prophet was bewitched. A hadith in Bukhari claims he was.</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="Prophet Forgetting the Qur'an" data-modal-content="<p><strong>The Qur'an:</strong> Allah promises the Prophet: <strong>'We will make you recite, so you will not forget, except what Allah wills.' (87:6-7)</strong>. This ensures the perfect transmission of the message.</p><p><strong>The Hadith (Bukhari):</strong> Multiple hadith depict the Prophet forgetting verses of the Qur'an during prayer, needing to be reminded by others, or remembering a verse only when he heard someone else reciting it. This undermines the very foundation of the Qur'an's preservation and the Prophet's role as a perfect conveyor of the message.</p>">
-                <h3>Prophet Forgetting Qur'an</h3>
-                <p>Qur'an (87:6) promises the Prophet he will not forget. Hadith claim he forgot verses during prayer.</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="A Suicidal Prophet?" data-modal-content="<p><strong>The Qur'an:</strong> The Qur'an shows the Prophet as a model of patience, strength, and trust in God, even in the face of extreme hardship.</p><p><strong>The Hadith (Bukhari):</strong> An astonishing narration in the most trusted hadith book claims that after the first revelation, there was a pause in revelation that caused the Prophet to become so grieved and distressed that he repeatedly attempted to throw himself from the top of a mountain. This portrayal of a suicidal messenger is a grave insult to his character and conflicts with the image of the steadfast role model described in the Qur'an.</p>">
-                <h3>A Suicidal Prophet?</h3>
-                <p>A hadith in Bukhari claims the Prophet repeatedly tried to commit suicide. This is an unimaginable attack on his character.</p>
-            </div>
-            <a href="https://drive.google.com/file/d/1tuVrgbwSvqSOJJxGYWSSfVHn1ehwhGuv/view?usp=drivesdk" target="_blank" class="read-all-card animate-on-scroll">
-                <h3>Read All Character Issues</h3>
-                <p>Open PDF Document</p>
-            </a>
+        
+        <div class="classic-card" data-modal="divinely-preserved">
+          <i class="fas fa-shield-alt card-icon-classic"></i>
+          <h3 class="card-title-classic">Divinely Preserved</h3>
+          <p class="card-description-classic">"Indeed, it is We who sent down the Reminder and indeed, We will be its guardian." (15:9)</p>
         </div>
-    </div>
-</section>
-
-<section id="problematic-hadiths">
-    <div class="container">
-        <h2 class="animate-on-scroll">Problematic Hadiths</h2>
-        <p class="section-intro animate-on-scroll">Beyond direct contradictions, many hadith contain narratives that are scientifically absurd, morally questionable, or promote superstitious beliefs that have no place in the rational and pure religion of God.</p>
-        <div class="grid-layout">
-            <div class="topic-card animate-on-scroll" data-modal-title="The Fly in the Drink" data-modal-content="<p><strong>The Hadith (Bukhari):</strong> A well-known hadith states that if a fly falls into your drink, you should dip it completely under the surface before removing it, because 'one of its wings has the disease and the other has the cure for the disease.' This pre-scientific notion is medically absurd and promotes unhygienic practices, attributing them to the Prophet.</p>">
-                <h3>Fly in the Drink</h3>
-                <p>A hadith claims one wing of a fly has a disease and the other has its cure. This is scientifically baseless.</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="Women, Dogs, and Donkeys" data-modal-content="<p><strong>The Hadith (Muslim, Abu Dawud):</strong> An authentic hadith claims that a man's prayer is nullified (cut off) if a woman, a donkey, or a black dog passes in front of him. This misogynistic and irrational ruling degrades women to the level of animals and introduces superstitious rules that have no basis in the Qur'an. The Qur'an, in contrast, honors women as spiritual equals to men (33:35).</p>">
-                <h3>Women Nullifying Prayer</h3>
-                <p>Hadith claim a woman, donkey, or black dog passing in front of a praying person invalidates their prayer.</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="Drinking Camel Urine" data-modal-content="<p><strong>The Hadith (Bukhari):</strong> A narration describes the Prophet instructing some men who had fallen ill to drink the milk and urine of camels as a cure. When the men recovered and then turned on and killed the Prophet's shepherd, they were captured and brutally tortured. This story promotes a medically questionable and unhygienic practice and attributes a shocking level of brutality to the Prophet, which contradicts the Qur'an's description of him as a 'mercy to the worlds' (21:107).</p>">
-                <h3>Drinking Camel Urine</h3>
-                <p>A hadith in Bukhari prescribes drinking camel urine for medicinal purposes and describes brutal torture.</p>
-            </div>
-            <a href="https://drive.google.com/file/d/1tv93SbwuPlY0YdFCz6Ww1JwqqSO97v9n/view?usp=drivesdk" target="_blank" class="read-all-card animate-on-scroll">
-                <h3>Read All Problematic Narrations</h3>
-                <p>Open PDF Document</p>
-            </a>
+        
+        <div class="classic-card" data-modal="only-authority">
+          <i class="fas fa-gavel card-icon-classic"></i>
+          <h3 class="card-title-classic">The Only Authority</h3>
+          <p class="card-description-classic">"Shall I seek other than Allah as a judge, when He has sent down to you the Book explained in detail?" (6:114)</p>
         </div>
-    </div>
-</section>
+        
+        <a href="https://drive.google.com/file/d/1tjscYL6-wesUQxQntH0kzANqq9ngEMCx/view?usp=drivesdk" target="_blank" class="classic-card pdf-card-classic">
+          <i class="fas fa-file-pdf card-icon-classic"></i>
+          <h3 class="card-title-classic">Read All Proofs</h3>
+          <p class="card-description-classic">Open PDF Document</p>
+        </a>
+      </div>
+    </section>
 
-<section id="quran-prohibits-hadith">
-    <div class="container">
-        <h2 class="animate-on-scroll">The Qur'an Prohibits Hadith</h2>
-        <p class="section-intro animate-on-scroll">The Qur'an itself, in its own words, warns believers against seeking any religious narrative or statement ("hadith") for guidance other than God's own revelation. The argument against Hadith is found within the Qur'an itself.</p>
-        <div class="grid-layout">
-            <div class="topic-card animate-on-scroll" data-modal-title="Which 'Hadith' to Believe?" data-modal-content="<p>The Qur'an poses a powerful rhetorical question after presenting its signs: <strong>'These are the verses of Allah which We recite to you in truth. Then in which 'hadith' (statement/narrative) after Allah and His verses will they believe?' (Qur’an 45:6)</strong>. The same question is repeated in 7:185 and 77:50. The word 'hadith' here means any narrative or saying. The verse is a clear challenge: if God's own perfect words are not enough for you, what other fallible human story will you turn to for your religion?</p>">
-                <h3>"In which 'hadith' after God?"</h3>
-                <p>"Then in which 'hadith' after Allah and His verses will they believe?" (45:6)</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="The Best 'Hadith'" data-modal-content="<p>The Qur'an describes itself as the best possible narrative: <strong>'Allah has sent down the best 'hadith': a Book, consistent and mutually reinforcing...' (Qur’an 39:23)</strong>. By calling itself the 'best hadith', the Qur'an establishes its supremacy and implies the inferiority of all other hadith. Why would a believer abandon the 'best hadith' from God for questionable hadith compiled by men centuries later?</p>">
-                <h3>The Best 'Hadith'</h3>
-                <p>"Allah has sent down the best 'hadith': a Book, consistent and mutually reinforcing..." (39:23)</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="A Warning Against Distractions" data-modal-content="<p>The Qur'an warns against those who uphold distracting narratives to lead people astray: <strong>'And of the people is one who purchases an idle 'hadith' (lahw al-hadith) to mislead [others] from the way of Allah without knowledge...' (Qur’an 31:6)</strong>. While traditional interpretations limit this to music or poetry, its literal meaning encompasses any distracting narrative that diverts people from the pure and sufficient guidance of the Qur'an. Religious narratives outside the Qur'an, which create division and contradiction, perfectly fit this description.</p>">
-                <h3>Warning Against Idle 'Hadith'</h3>
-                <p>The Qur'an warns against those who purchase 'idle hadith' to mislead from God's path (31:6).</p>
-            </div>
-             <a href="https://drive.google.com/file/d/1txxfUP6R3mqVoBrV2LTw9c3k7-p3K7PG/view?usp=drivesdk" target="_blank" class="read-all-card animate-on-scroll">
-                <h3>Read All Qur'anic Verses on Hadith</h3>
-                <p>Open PDF Document</p>
-            </a>
+    <!-- Hadith Contradicts Quran Section -->
+    <section class="classic-section" id="hadith-contradicts-quran">
+      <div class="section-header-classic">
+        <h2 class="section-title-classic">Hadith Contradicts The Qur\'an</h2>
+        <p class="section-description-classic">
+          When secondary sources (Hadith) are placed next to the Qur\'an, numerous direct contradictions emerge. This demonstrates their human origin and fallibility, as God\'s words cannot be inconsistent.
+        </p>
+      </div>
+      
+      <div class="classic-grid">
+        <div class="classic-card" data-modal="adultery-punishment">
+          <i class="fas fa-balance-scale card-icon-classic"></i>
+          <h3 class="card-title-classic">Adultery Punishment</h3>
+          <p class="card-description-classic">Qur\'an (24:2) commands 100 lashes. Hadith command stoning to death.</p>
         </div>
-    </div>
-</section>
-
-<section id="hadith-prohibits-hadith">
-    <div class="container">
-        <h2 class="animate-on-scroll">Hadith Prohibits Hadith</h2>
-        <p class="section-intro animate-on-scroll">Ironically, one of the most compelling arguments against the collections of Hadith comes from the Hadith collections themselves. There are "authentic" narrations stating that the Prophet Muhammad himself strictly forbade the writing of his sayings.</p>
-        <div class="grid-layout">
-            <div class="topic-card animate-on-scroll" data-modal-title="The Prophet's Command" data-modal-content="<p>A narration from the companion Abu Sa'id al-Khudri, found in Sahih Muslim (one of the two most trusted Hadith collections), reports that the Prophet said: <strong>'Do not write anything from me except the Qur'an. Whoever has written anything from me other than the Qur'an, let him erase it.'</strong> (Sahih Muslim, Zuhd, 72). This is a clear and direct command from the Prophet to not create a parallel body of scripture. The very existence of Hadith books today is in direct violation of this instruction attributed to the Prophet himself.</p>">
-                <h3>"Do not write from me..."</h3>
-                <p>A hadith in Sahih Muslim states the Prophet said: "Do not write anything from me except the Qur'an."</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="Fear of Confusion" data-modal-content="<p>The reason for this prohibition is clear: to prevent the mixing of God's perfect words (the Qur'an) with the fallible words and reports of a human being (the Prophet). Early Muslims understood this well. The Caliph Umar ibn al-Khattab is reported to have considered compiling the Prophet's sayings but decided against it, saying, <strong>'I remembered the people before you. They wrote books, and then they turned to them and abandoned the Book of God. And I will never, by God, mix the Book of God with anything.'</strong> This historical understanding confirms that the focus was meant to be on the Qur'an alone.</p>">
-                <h3>Avoiding Confusion with Qur'an</h3>
-                <p>Early leaders feared that writing the Prophet's sayings would lead people to abandon the Qur'an.</p>
-            </div>
-            <div class="topic-card animate-on-scroll" data-modal-title="Violation of the Command" data-modal-content="<p>Despite this clear prohibition, the practice of collecting, writing, and eventually canonizing the Prophet's sayings began to flourish over two centuries after his death. This human-led project directly contradicted the Prophet's own wishes (as reported in their own books) and led to the creation of the very problem he sought to avoid: the elevation of human reports to the level of divine scripture, causing division, contradiction, and the clouding of the pure message of the Qur'an.</p>">
-                <h3>A Contradictory Practice</h3>
-                <p>The very act of collecting and writing Hadith goes against the Prophet's own command not to do so.</p>
-            </div>
-            <a href="https://drive.google.com/file/d/1u1d2JjOj8V4OY0J_iR90qc6icSvQx6ja/view?usp=drivesdk" target="_blank" class="read-all-card animate-on-scroll">
-                <h3>Read All Prohibitions</h3>
-                <p>Open PDF Document</p>
-            </a>
+        
+        <div class="classic-card" data-modal="apostasy-penalty">
+          <i class="fas fa-door-open card-icon-classic"></i>
+          <h3 class="card-title-classic">Apostasy Penalty</h3>
+          <p class="card-description-classic">Qur\'an (2:256) states "No compulsion in religion." Hadith command death for apostates.</p>
         </div>
-    </div>
-</section>
+        
+        <div class="classic-card" data-modal="inheritance-prophets">
+          <i class="fas fa-coins card-icon-classic"></i>
+          <h3 class="card-title-classic">Inheritance of Prophets</h3>
+          <p class="card-description-classic">Qur\'an (27:16, 19:6) shows prophets inherit. Hadith claims prophets leave no inheritance.</p>
+        </div>
+        
+        <a href="https://drive.google.com/file/d/1tlaKxkXcUEqoYpmjzJBFo7Wc4wnB_w8J/view?usp=drivesdk" target="_blank" class="classic-card pdf-card-classic">
+          <i class="fas fa-file-pdf card-icon-classic"></i>
+          <h3 class="card-title-classic">Read All Contradictions</h3>
+          <p class="card-description-classic">Open PDF Document</p>
+        </a>
+      </div>
+    </section>
 
-<section id="faq">
-  <div class="container">
-    <h2 class="animate-on-scroll">FAQs</h2>
-    <p class="section-intro animate-on-scroll">Common objections and honest answers from a Qur'an-centric perspective, providing clarity and dispelling misconceptions.</p>
+    <!-- Hadith Contradicts Hadith Section -->
+    <section class="classic-section" id="hadith-contradicts-hadith">
+      <div class="section-header-classic">
+        <h2 class="section-title-classic">Hadith Contradicts Hadith</h2>
+        <p class="section-description-classic">
+          The Hadith collections are filled with internal contradictions, where one "authentic" narration says one thing and another "authentic" narration says the complete opposite. This is a clear sign of human error and unreliability.
+        </p>
+      </div>
+      
+      <div class="classic-grid">
+        <div class="classic-card" data-modal="ablution-contradiction">
+          <i class="fas fa-hands-wash card-icon-classic"></i>
+          <h3 class="card-title-classic">Ablution after Cooked Food</h3>
+          <p class="card-description-classic">One hadith says eating cooked food breaks wudu. Another says the Prophet ate and prayed without new wudu.</p>
+        </div>
+        
+        <div class="classic-card" data-modal="creation-day">
+          <i class="fas fa-globe card-icon-classic"></i>
+          <h3 class="card-title-classic">The Day Creation Began</h3>
+          <p class="card-description-classic">One "authentic" hadith says creation started on Saturday. Top scholars reject it as false.</p>
+        </div>
+        
+        <div class="classic-card" data-modal="fasting-travel">
+          <i class="fas fa-route card-icon-classic"></i>
+          <h3 class="card-title-classic">Fasting While Traveling</h3>
+          <p class="card-description-classic">Some hadith forbid fasting on a journey. Others show the Prophet and companions doing it.</p>
+        </div>
+        
+        <a href="https://drive.google.com/file/d/1ts1Qb_jrywNbU7QWbsHB1s0-gSNEoZAe/view?usp=drivesdk" target="_blank" class="classic-card pdf-card-classic">
+          <i class="fas fa-file-pdf card-icon-classic"></i>
+          <h3 class="card-title-classic">Read All Internal Conflicts</h3>
+          <p class="card-description-classic">Open PDF Document</p>
+        </a>
+      </div>
+    </section>
 
-    <details class="animate-on-scroll">
-      <summary>Q: How do we pray without hadith?</summary>
-      <p>A: The Qur’an commands prayer (Salat), mentions its timings, and its core components like standing, bowing, and prostrating (e.g., 2:238, 11:114, 22:77). The universal physical practice of Salat has been passed down through generations from the time of Abraham, a practice Prophet Muhammad revived. The Qur'an confirms these rites. The specific, rigid rituals detailed in Hadith are not required. True prayer is about sincere remembrance of God (20:14), not performing a precise, human-codified ritual.</p>
-    </details>
+    <!-- Hadith Attack Prophet Section -->
+    <section class="classic-section" id="hadith-attack-prophet">
+      <div class="section-header-classic">
+        <h2 class="section-title-classic">Hadith Attack Prophet\'s Character</h2>
+        <p class="section-description-classic">
+          The Qur\'an describes the Prophet Muhammad as having the "most exalted character" (68:4). However, many hadith, accepted as authentic, portray him in a manner that is inconsistent with this divine praise, depicting him as forgetful, violent, or even bewitched.
+        </p>
+      </div>
+      
+      <div class="classic-grid">
+        <div class="classic-card" data-modal="prophet-magic">
+          <i class="fas fa-magic card-icon-classic"></i>
+          <h3 class="card-title-classic">Prophet Under Magic</h3>
+          <p class="card-description-classic">Qur\'an (17:47) refutes the slander that the Prophet was bewitched. A hadith in Bukhari claims he was.</p>
+        </div>
+        
+        <div class="classic-card" data-modal="prophet-forgetting">
+          <i class="fas fa-brain card-icon-classic"></i>
+          <h3 class="card-title-classic">Prophet Forgetting Qur\'an</h3>
+          <p class="card-description-classic">Qur\'an (87:6) promises the Prophet he will not forget. Hadith claim he forgot verses during prayer.</p>
+        </div>
+        
+        <div class="classic-card" data-modal="prophet-suicide">
+          <i class="fas fa-mountain card-icon-classic"></i>
+          <h3 class="card-title-classic">A Suicidal Prophet?</h3>
+          <p class="card-description-classic">A hadith in Bukhari claims the Prophet repeatedly tried to commit suicide. This is an unimaginable attack on his character.</p>
+        </div>
+        
+        <a href="https://drive.google.com/file/d/1tuVrgbwSvqSOJJxGYWSSfVHn1ehwhGuv/view?usp=drivesdk" target="_blank" class="classic-card pdf-card-classic">
+          <i class="fas fa-file-pdf card-icon-classic"></i>
+          <h3 class="card-title-classic">Read All Character Issues</h3>
+          <p class="card-description-classic">Open PDF Document</p>
+        </a>
+      </div>
+    </section>
 
-    <details class="animate-on-scroll">
-      <summary>Q: Doesn't the Qur'an say to "Obey the Messenger"?</summary>
-      <p>A: Yes, and the Messenger's primary duty was to deliver the message he received from God—the Qur'an. Obeying the Messenger *is* obeying the Qur'an. He had no authority to create his own separate religious laws. As he was commanded to say: <strong>'I only follow what is revealed to me.' (Qur'an 6:50)</strong>. Therefore, true obedience to the Messenger is to adhere strictly to the revelation he delivered: The Qur'an, and nothing else.</p>
-    </details>
+    <!-- Problematic Hadiths Section -->
+    <section class="classic-section" id="problematic-hadiths">
+      <div class="section-header-classic">
+        <h2 class="section-title-classic">Problematic Hadiths</h2>
+        <p class="section-description-classic">
+          Beyond direct contradictions, many hadith contain narratives that are scientifically absurd, morally questionable, or promote superstitious beliefs that have no place in the rational and pure religion of God.
+        </p>
+      </div>
+      
+      <div class="classic-grid">
+        <div class="classic-card" data-modal="fly-drink">
+          <i class="fas fa-bug card-icon-classic"></i>
+          <h3 class="card-title-classic">Fly in the Drink</h3>
+          <p class="card-description-classic">A hadith claims one wing of a fly has a disease and the other has its cure. This is scientifically baseless.</p>
+        </div>
+        
+        <div class="classic-card" data-modal="women-prayer">
+          <i class="fas fa-female card-icon-classic"></i>
+          <h3 class="card-title-classic">Women Nullifying Prayer</h3>
+          <p class="card-description-classic">Hadith claim a woman, donkey, or black dog passing in front of a praying person invalidates their prayer.</p>
+        </div>
+        
+        <div class="classic-card" data-modal="camel-urine">
+          <i class="fas fa-prescription-bottle card-icon-classic"></i>
+          <h3 class="card-title-classic">Drinking Camel Urine</h3>
+          <p class="card-description-classic">A hadith in Bukhari prescribes drinking camel urine for medicinal purposes and describes brutal torture.</p>
+        </div>
+        
+        <a href="https://drive.google.com/file/d/1tv93SbwuPlY0YdFCz6Ww1JwqqSO97v9n/view?usp=drivesdk" target="_blank" class="classic-card pdf-card-classic">
+          <i class="fas fa-file-pdf card-icon-classic"></i>
+          <h3 class="card-title-classic">Read All Problematic Narrations</h3>
+          <p class="card-description-classic">Open PDF Document</p>
+        </a>
+      </div>
+    </section>
 
-    <details class="animate-on-scroll">
-      <summary>Q: Isn’t this a new sect?</summary>
-      <p>A: On the contrary, this is a call to abandon all sects (Sunni, Shia, etc.), which are themselves based on allegiance to different sets of hadith and scholars. It is a return to the original, pure Islam guided by the one Book sent to all of mankind, the Qur'an. The Qur'an itself condemns sectarianism: <strong>'As for those who divide their religion and break up into sects, you have no part in them in the least.' (Qur’an 6:159)</strong>.</p>
-    </details>
+    <!-- Quran Prohibits Hadith Section -->
+    <section class="classic-section" id="quran-prohibits-hadith">
+      <div class="section-header-classic">
+        <h2 class="section-title-classic">The Qur\'an Prohibits Hadith</h2>
+        <p class="section-description-classic">
+          The Qur\'an itself, in its own words, warns believers against seeking any religious narrative or statement ("hadith") for guidance other than God\'s own revelation. The argument against Hadith is found within the Qur\'an itself.
+        </p>
+      </div>
+      
+      <div class="classic-grid">
+        <div class="classic-card" data-modal="which-hadith">
+          <i class="fas fa-question card-icon-classic"></i>
+          <h3 class="card-title-classic">"In which \'hadith\' after God?"</h3>
+          <p class="card-description-classic">"Then in which \'hadith\' after Allah and His verses will they believe?" (45:6)</p>
+        </div>
+        
+        <div class="classic-card" data-modal="best-hadith">
+          <i class="fas fa-star card-icon-classic"></i>
+          <h3 class="card-title-classic">The Best \'Hadith\'</h3>
+          <p class="card-description-classic">"Allah has sent down the best \'hadith\': a Book, consistent and mutually reinforcing..." (39:23)</p>
+        </div>
+        
+        <div class="classic-card" data-modal="idle-hadith">
+          <i class="fas fa-exclamation-triangle card-icon-classic"></i>
+          <h3 class="card-title-classic">Warning Against Idle \'Hadith\'</h3>
+          <p class="card-description-classic">The Qur\'an warns against those who purchase \'idle hadith\' to mislead from God\'s path (31:6).</p>
+        </div>
+        
+        <a href="https://drive.google.com/file/d/1txxfUP6R3mqVoBrV2LTw9c3k7-p3K7PG/view?usp=drivesdk" target="_blank" class="classic-card pdf-card-classic">
+          <i class="fas fa-file-pdf card-icon-classic"></i>
+          <h3 class="card-title-classic">Read All Qur\'anic Verses on Hadith</h3>
+          <p class="card-description-classic">Open PDF Document</p>
+        </a>
+      </div>
+    </section>
 
-    <details class="animate-on-scroll">
-      <summary>Q: Are you saying all hadiths are false?</summary>
-      <p>A: A hadith may contain historical truth, but it cannot be used as a source of religious law or doctrine. Only the Qur'an is divinely guaranteed to be true and preserved (15:9). Since the Hadith collections contain proven contradictions with the Qur'an, with science, with history, and with each other, they are demonstrably unreliable as a whole. We cannot risk our salvation on a source that is not 100% protected by God.</p>
-    </details>
-  </div>
-</section>
+    <!-- Hadith Prohibits Hadith Section -->
+    <section class="classic-section" id="hadith-prohibits-hadith">
+      <div class="section-header-classic">
+        <h2 class="section-title-classic">Hadith Prohibits Hadith</h2>
+        <p class="section-description-classic">
+          Ironically, one of the most compelling arguments against the collections of Hadith comes from the Hadith collections themselves. There are "authentic" narrations stating that the Prophet Muhammad himself strictly forbade the writing of his sayings.
+        </p>
+      </div>
+      
+      <div class="classic-grid">
+        <div class="classic-card" data-modal="prophet-command">
+          <i class="fas fa-ban card-icon-classic"></i>
+          <h3 class="card-title-classic">"Do not write from me..."</h3>
+          <p class="card-description-classic">A hadith in Sahih Muslim states the Prophet said: "Do not write anything from me except the Qur\'an."</p>
+        </div>
+        
+        <div class="classic-card" data-modal="fear-confusion">
+          <i class="fas fa-shield-alt card-icon-classic"></i>
+          <h3 class="card-title-classic">Avoiding Confusion with Qur\'an</h3>
+          <p class="card-description-classic">Early leaders feared that writing the Prophet\'s sayings would lead people to abandon the Qur\'an.</p>
+        </div>
+        
+        <div class="classic-card" data-modal="violation-command">
+          <i class="fas fa-times-circle card-icon-classic"></i>
+          <h3 class="card-title-classic">A Contradictory Practice</h3>
+          <p class="card-description-classic">The very act of collecting and writing Hadith goes against the Prophet\'s own command not to do so.</p>
+        </div>
+        
+        <a href="https://drive.google.com/file/d/1u1d2JjOj8V4OY0J_iR90qc6icSvQx6ja/view?usp=drivesdk" target="_blank" class="classic-card pdf-card-classic">
+          <i class="fas fa-file-pdf card-icon-classic"></i>
+          <h3 class="card-title-classic">Read All Prohibitions</h3>
+          <p class="card-description-classic">Open PDF Document</p>
+        </a>
+      </div>
+    </section>
 
+    <!-- FAQ Section -->
+    <section class="classic-section" id="faq">
+      <div class="section-header-classic">
+        <h2 class="section-title-classic">Frequently Asked Questions</h2>
+        <p class="section-description-classic">
+          Common objections and honest answers from a Qur\'an-centric perspective, providing clarity and dispelling misconceptions.
+        </p>
+      </div>
+      
+      <div class="faq-container">
+        <div class="faq-item-classic">
+          <div class="faq-question-classic">
+            <span>How do we pray without hadith?</span>
+            <i class="fas fa-chevron-down faq-icon-classic"></i>
+          </div>
+          <div class="faq-answer-classic">
+            The Qur\'an commands prayer (Salat), mentions its timings, and its core components like standing, bowing, and prostrating (e.g., 2:238, 11:114, 22:77). The universal physical practice of Salat has been passed down through generations from the time of Abraham, a practice Prophet Muhammad revived. The Qur\'an confirms these rites. The specific, rigid rituals detailed in Hadith are not required. True prayer is about sincere remembrance of God (20:14), not performing a precise, human-codified ritual.
+          </div>
+        </div>
+        
+        <div class="faq-item-classic">
+          <div class="faq-question-classic">
+            <span>Doesn\'t the Qur\'an say to "Obey the Messenger"?</span>
+            <i class="fas fa-chevron-down faq-icon-classic"></i>
+          </div>
+          <div class="faq-answer-classic">
+            Yes, and the Messenger\'s primary duty was to deliver the message he received from God—the Qur\'an. Obeying the Messenger *is* obeying the Qur\'an. He had no authority to create his own separate religious laws. As he was commanded to say: <strong>\'I only follow what is revealed to me.\' (Qur\'an 6:50)</strong>. Therefore, true obedience to the Messenger is to adhere strictly to the revelation he delivered: The Qur\'an, and nothing else.
+          </div>
+        </div>
+        
+        <div class="faq-item-classic">
+          <div class="faq-question-classic">
+            <span>Isn\'t this a new sect?</span>
+            <i class="fas fa-chevron-down faq-icon-classic"></i>
+          </div>
+          <div class="faq-answer-classic">
+            On the contrary, this is a call to abandon all sects (Sunni, Shia, etc.), which are themselves based on allegiance to different sets of hadith and scholars. It is a return to the original, pure Islam guided by the one Book sent to all of mankind, the Qur\'an. The Qur\'an itself condemns sectarianism: <strong>\'As for those who divide their religion and break up into sects, you have no part in them in the least.\' (Qur\'an 6:159)</strong>.
+          </div>
+        </div>
+        
+        <div class="faq-item-classic">
+          <div class="faq-question-classic">
+            <span>Are you saying all hadiths are false?</span>
+            <i class="fas fa-chevron-down faq-icon-classic"></i>
+          </div>
+          <div class="faq-answer-classic">
+            A hadith may contain historical truth, but it cannot be used as a source of religious law or doctrine. Only the Qur\'an is divinely guaranteed to be true and preserved (15:9). Since the Hadith collections contain proven contradictions with the Qur\'an, with science, with history, and with each other, they are demonstrably unreliable as a whole. We cannot risk our salvation on a source that is not 100% protected by God.
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="about-us">
-  <div class="container">
-    <h2 class="animate-on-scroll">About Us</h2>
-    <p class="section-intro animate-on-scroll">We are an independent collective of believers from around the world, united by one principle: submission to God alone through His final, complete, and preserved scripture, the Qur'an. We are not a sect, nor do we follow any specific scholar or tradition. Our sole mission is to call people back to the pure, simple, and rational message of the Qur'an, free from the centuries of man-made traditions, cultural baggage, and contradictory narrations that have divided the community and clouded the faith. We advocate for critical thinking and direct engagement with God's word as the only path to truth and unity.</p>
-  </div>
-</section>
+    <!-- About Us Section -->
+    <section class="classic-section" id="about-us">
+      <div class="section-header-classic">
+        <h2 class="section-title-classic">About Us</h2>
+        <p class="section-description-classic">
+          We are an independent collective of believers from around the world, united by one principle: submission to God alone through His final, complete, and preserved scripture, the Qur\'an. We are not a sect, nor do we follow any specific scholar or tradition. Our sole mission is to call people back to the pure, simple, and rational message of the Qur\'an, free from the centuries of man-made traditions, cultural baggage, and contradictory narrations that have divided the community and clouded the faith. We advocate for critical thinking and direct engagement with God\'s word as the only path to truth and unity.
+        </p>
+      </div>
+    </section>
+  </main>
 
-</main>
-
-<footer>
-  <div class="container">
-    <blockquote class="quote">
+  <!-- Premium Footer -->
+  <footer class="classic-footer">
+    <blockquote class="footer-quote-classic">
       "And the Word of your Lord has been fulfilled in truth and in justice. None can alter His Words. And He is the Hearing, the Knowing."<br/>
-      <strong>— Qur’an 6:115</strong>
+      <strong>— Qur\'an 6:115</strong>
     </blockquote>
-    <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.85;">&copy; 2025 The Qur'an Alone. All Rights Reserved.</p>
-  </div>
-</footer>
+    <p class="footer-copyright-classic">&copy; 2025 The Qur\'an Alone. All Rights Reserved.</p>
+  </footer>
 
-<button id="scrollToTopBtn" title="Go to top" aria-label="Scroll to top">&#9650;</button>
+  <!-- Premium Floating Action Button -->
+  <button class="fab-classic" id="scrollToTop" title="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-<div class="card-modal-overlay" id="cardModalOverlay">
-    <div class="card-modal-content">
-        <button class="card-modal-close" id="cardModalClose">&times;</button>
-        <h3 id="modalTitle"></h3>
-        <div id="modalContent"></div>
+  <!-- Premium Modal -->
+  <div class="modal-overlay-classic" id="modalOverlay">
+    <div class="modal-content-classic">
+      <button class="modal-close-classic" id="modalClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <div id="modalBody"></div>
     </div>
-</div>
+  </div>
 
-<script>
-  // --- Mobile Menu Toggle ---
-  const mobileToggle = document.getElementById('mobileToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+  <script>
+    // Premium Classic Website - Optimized for Performance and Aesthetics
+    class PremiumClassicWebsite {
+      constructor() {
+        this.ticking = false;
+        this.init();
+      }
 
-  mobileToggle.addEventListener('click', () => {
-    const isVisible = mobileMenu.classList.toggle('show');
-    mobileToggle.innerHTML = isVisible ? '&#x2715;' : '&#9776;';
-    mobileToggle.setAttribute('aria-expanded', isVisible);
-  });
+      init() {
+        this.setupScrollEffects();
+        this.setupNavigation();
+        this.setupCardAnimations();
+        this.setupModals();
+        this.setupFAQ();
+        this.setupMobileMenu();
+      }
 
-  mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('show');
-      mobileToggle.innerHTML = '&#9776;';
-      mobileToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+      // Optimized Scroll Effects
+      setupScrollEffects() {
+        const header = document.getElementById('header');
+        const scrollProgress = document.getElementById('scrollProgress');
+        const fab = document.getElementById('scrollToTop');
 
-  // --- Smooth Scrolling for Anchor Links ---
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          // Only prevent default for internal links
-          if (href.startsWith('#')) {
-              e.preventDefault();
-              const targetElement = document.querySelector(href);
-              if (targetElement) {
-                  targetElement.scrollIntoView({ behavior: 'smooth' });
-                  history.pushState(null, null, href);
-              }
+        const updateElements = () => {
+          const scrollY = window.pageYOffset;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPercent = Math.min((scrollY / docHeight) * 100, 100);
+
+          scrollProgress.style.width = `${scrollPercent}%`;
+
+          if (scrollY > 50) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
           }
-      });
-  });
 
-  // --- Scroll-triggered Animations ---
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+          if (scrollY > 600) {
+            fab.classList.add('visible');
+          } else {
+            fab.classList.remove('visible');
+          }
+
+          this.ticking = false;
+        };
+
+        const handleScroll = () => {
+          if (!this.ticking) {
+            requestAnimationFrame(updateElements);
+            this.ticking = true;
+          }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        fab.addEventListener('click', () => {
+          window.scrollTo({ 
+            top: 0, 
+            behavior: 'smooth' 
+          });
+        });
       }
-    });
-  }, { threshold: 0.15 }); // Trigger a bit later
 
-  document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el);
-  });
+      // Navigation
+      setupNavigation() {
+        const navLinks = document.querySelectorAll('.nav-link-classic');
+        const sections = document.querySelectorAll('.classic-section');
 
+        navLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+              const offsetTop = targetSection.offsetTop - 100; // Adjusted offset
+              window.scrollTo({ 
+                top: offsetTop, 
+                behavior: 'smooth' 
+              });
+            }
+          });
+        });
 
-  // --- Active Nav Link on Scroll & Scroll Progress ---
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.desktop-nav a');
-  const scrollProgress = document.getElementById('scrollProgress');
+        const updateActiveNav = () => {
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150; // Adjusted offset
+            if (window.pageYOffset >= sectionTop) {
+              current = section.getAttribute('id');
+            }
+          });
 
-  window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (current && link.getAttribute('href').substring(1) === current) {
+              link.classList.add('active');
+            }
+          });
+        };
 
-    // Update scroll progress bar
-    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    scrollProgress.style.width = `${(scrollY / docHeight) * 100}%`;
-
-    // Highlight active nav link
-    let currentSectionId = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 150;
-      if (scrollY >= sectionTop) {
-        currentSectionId = section.getAttribute('id');
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        updateActiveNav();
       }
-    });
 
-    navLinks.forEach(a => {
-      a.classList.remove('active');
-      if (a.getAttribute('href').includes(currentSectionId)) {
-        a.classList.add('active');
+      // Premium Scroll-Triggered Card Animations
+      setupCardAnimations() {
+        const observerOptions = {
+          threshold: 0.2, // Card is 20% visible
+          rootMargin: '0px 0px -50px 0px' // Start animation slightly before it enters viewport
+        };
+
+        const cardObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target); // Stop observing once animated
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.classic-card').forEach(card => {
+          cardObserver.observe(card);
+        });
       }
+
+      // Modal System
+      setupModals() {
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalBody = document.getElementById('modalBody');
+        const modalClose = document.getElementById('modalClose');
+        const cards = document.querySelectorAll('[data-modal]');
+
+        const modalContent = {
+          'fully-detailed': {
+            title: 'The Qur\'an: Fully Detailed',
+            content: `
+              <p>The Qur\'an itself declares its comprehensive nature. Allah proclaims: <strong>\'We have neglected nothing in the Book.\' (Qur\'an 6:38)</strong> and <strong>\'A Book whose verses have been perfected and then detailed from one who is All-Wise and All-Aware.\' (Qur\'an 11:1)</strong>.</p>
+              <p>This divine assertion confirms that all principles of faith, law, and morality required for guidance are contained within its pages. To claim it needs another book to be understood is to question the wisdom and completeness of Allah\'s own words.</p>
+            `
+          },
+          'divinely-preserved': {
+            title: 'The Qur\'an: Divinely Preserved',
+            content: `
+              <p>The promise of Allah\'s preservation is exclusive to the Qur\'an: <strong>\'Indeed, it is We who sent down the Reminder (the Qur\'an) and indeed, We will be its guardian.\' (Qur\'an 15:9)</strong>.</p>
+              <p>No other text, including collections of Hadith compiled centuries later by fallible men, carries this divine guarantee. This makes the Qur\'an the only 100% reliable and pristine source of Islam, unchanged and uncorrupted through time.</p>
+            `
+          },
+          'only-authority': {
+            title: 'The Only Authority',
+            content: `
+              <p>Allah instructs us to seek judgment from no other source: <strong>\'Shall I seek other than Allah as a judge, when He has sent down to you the Book explained in detail?\' (Qur\'an 6:114)</strong>.</p>
+              <p>This verse establishes the Qur\'an as the ultimate and sole criterion (Al-Furqan) for truth. Elevating any other source to the level of divine law is a form of shirk (associating partners with God) in legislation, which the Qur\'an strictly forbids.</p>
+            `
+          },
+          'adultery-punishment': {
+            title: 'Punishment for Adultery',
+            content: `
+              <p><strong>The Qur\'an:</strong> The punishment for unlawful sexual intercourse is explicitly stated as one hundred lashes for both the man and the woman. <strong>\'The female adulterer and the male adulterer, lash each one of them with a hundred lashes...\' (Qur\'an 24:2)</strong>. This is a clear and merciful law.</p>
+              <p><strong>The Hadith:</strong> Hadith literature introduces the brutal punishment of stoning to death (rajm), a practice from pre-Islamic and other traditions. This directly violates and replaces the specific, legislated punishment found in God\'s Book.</p>
+            `
+          },
+          'apostasy-penalty': {
+            title: 'Apostasy (Leaving Islam)',
+            content: `
+              <p><strong>The Qur\'an:</strong> The Qur\'an guarantees freedom of religion with its timeless principle: <strong>\'There shall be no compulsion in [acceptance of] the religion.\' (Qur\'an 2:256)</strong>. It states that the consequence for disbelief is with God in the Hereafter, not a worldly punishment.</p>
+              <p><strong>The Hadith:</strong> Certain widely-accepted Hadith command death for anyone who leaves the religion of Islam (e.g., \'Whoever changes his religion, kill him.\'). This directly contradicts the Qur\'an\'s core principle of religious freedom.</p>
+            `
+          },
+          'inheritance-prophets': {
+            title: 'Inheritance for Prophets',
+            content: `
+              <p><strong>The Qur\'an:</strong> The Qur\'an\'s laws of inheritance (Surah 4) are universal and apply to all believers. It gives examples of prophets inheriting from other prophets, such as Solomon inheriting from David (27:16) and Zachariah praying for an heir to inherit from him (19:6).</p>
+              <p><strong>The Hadith:</strong> A famous hadith claims, \'We, the Prophets, do not leave inheritance. Whatever we leave is charity.\' This narration was used to dispossess the Prophet\'s own family of their rightful inheritance, and it stands in direct opposition to the principles and examples set in the Qur\'an.</p>
+            `
+          },
+          'ablution-contradiction': {
+            title: 'Ablution (Wudu)',
+            content: `
+              <p><strong>Contradiction:</strong> How does performing certain acts affect one\'s state of ablution (wudu)?</p>
+              <p><strong>Narration 1:</strong> Some hadith state that eating food cooked over a fire breaks wudu and requires it to be performed again.</p>
+              <p><strong>Narration 2:</strong> Other equally authentic hadith state that the Prophet ate cooked meat and then prayed without performing a new wudu. These internal clashes on basic daily rituals create confusion that is absent in the Qur\'an.</p>
+            `
+          },
+          'creation-day': {
+            title: 'Beginning of Creation',
+            content: `
+              <p><strong>Contradiction:</strong> On which day did God begin creation?</p>
+              <p><strong>Narration 1 (Sahih Muslim):</strong> A hadith from Abu Hurayra details creation starting on a Saturday and ending on a Friday.</p>
+              <p><strong>Critique by Hadith Scholars:</strong> Major hadith scholars like Ibn Kathir and Al-Bukhari himself rejected this hadith, stating it contradicts the Qur\'an (which describes creation in \'six days\') and likely comes from Jewish/Christian traditions (Isra\'iliyat). If scholars cannot agree on the authenticity of a hadith in their own most trusted book, how can an average person rely on it?</p>
+            `
+          },
+          'fasting-travel': {
+            title: 'Fasting while Traveling',
+            content: `
+              <p><strong>Contradiction:</strong> Should a person fast during Ramadan if they are traveling?</p>
+              <p><strong>Narration 1:</strong> Some hadith narrate the Prophet saying it is \'not an act of righteousness to fast while on a journey.\'</p>
+              <p><strong>Narration 2:</strong> Other hadith narrate that the Prophet himself fasted on some journeys, and that companions would fast while others would not, and neither group found fault with the other. This leaves the believer with a direct contradiction on a pillar of Islam, a problem solved by the Qur\'an\'s clear guidance (2:184-185), which gives the choice to the individual.</p>
+            `
+          },
+          'prophet-magic': {
+            title: 'Prophet Under a Magic Spell',
+            content: `
+              <p><strong>The Qur\'an:</strong> The Qur\'an states that disbelievers accused the Prophet of being \'a man bewitched\' (17:47), and Allah defends him against this slander. He is protected by God.</p>
+              <p><strong>The Hadith (Bukhari):</strong> An "authentic" hadith claims the Prophet was successfully put under a magic spell by a Jew for many months, causing him to be confused, forgetful, and imagine he had done things which he had not. This narration validates the slander of the disbelievers and contradicts the Qur\'an\'s portrayal of a divinely protected messenger.</p>
+            `
+          },
+          'prophet-forgetting': {
+            title: 'Prophet Forgetting the Qur\'an',
+            content: `
+              <p><strong>The Qur\'an:</strong> Allah promises the Prophet: <strong>\'We will make you recite, so you will not forget, except what Allah wills.\' (87:6-7)</strong>. This ensures the perfect transmission of the message.</p>
+              <p><strong>The Hadith (Bukhari):</strong> Multiple hadith depict the Prophet forgetting verses of the Qur\'an during prayer, needing to be reminded by others, or remembering a verse only when he heard someone else reciting it. This undermines the very foundation of the Qur\'an\'s preservation and the Prophet\'s role as a perfect conveyor of the message.</p>
+            `
+          },
+          'prophet-suicide': {
+            title: 'A Suicidal Prophet?',
+            content: `
+              <p><strong>The Qur\'an:</strong> The Qur\'an shows the Prophet as a model of patience, strength, and trust in God, even in the face of extreme hardship.</p>
+              <p><strong>The Hadith (Bukhari):</strong> An astonishing narration in the most trusted hadith book claims that after the first revelation, there was a pause in revelation that caused the Prophet to become so grieved and distressed that he repeatedly attempted to throw himself from the top of a mountain. This portrayal of a suicidal messenger is a grave insult to his character and conflicts with the image of the steadfast role model described in the Qur\'an.</p>
+            `
+          },
+          'fly-drink': {
+            title: 'The Fly in the Drink',
+            content: `
+              <p><strong>The Hadith (Bukhari):</strong> A well-known hadith states that if a fly falls into your drink, you should dip it completely under the surface before removing it, because \'one of its wings has the disease and the other has the cure for the disease.\' This pre-scientific notion is medically absurd and promotes unhygienic practices, attributing them to the Prophet.</p>
+            `
+          },
+          'women-prayer': {
+            title: 'Women, Dogs, and Donkeys',
+            content: `
+              <p><strong>The Hadith (Muslim, Abu Dawud):</strong> An authentic hadith claims that a man\'s prayer is nullified (cut off) if a woman, a donkey, or a black dog passes in front of him. This misogynistic and irrational ruling degrades women to the level of animals and introduces superstitious rules that have no basis in the Qur\'an. The Qur\'an, in contrast, honors women as spiritual equals to men (33:35).</p>
+            `
+          },
+          'camel-urine': {
+            title: 'Drinking Camel Urine',
+            content: `
+              <p><strong>The Hadith (Bukhari):</strong> A narration describes the Prophet instructing some men who had fallen ill to drink the milk and urine of camels as a cure. When the men recovered and then turned on and killed the Prophet\'s shepherd, they were captured and brutally tortured. This story promotes a medically questionable and unhygienic practice and attributes a shocking level of brutality to the Prophet, which contradicts the Qur\'an\'s description of him as a \'mercy to the worlds\' (21:107).</p>
+            `
+          },
+          'which-hadith': {
+            title: 'Which \'Hadith\' to Believe?',
+            content: `
+              <p>The Qur\'an poses a powerful rhetorical question after presenting its signs: <strong>\'These are the verses of Allah which We recite to you in truth. Then in which \'hadith\' (statement/narrative) after Allah and His verses will they believe?\' (Qur\'an 45:6)</strong>. The same question is repeated in 7:185 and 77:50. The word \'hadith\' here means any narrative or saying. The verse is a clear challenge: if God\'s own perfect words are not enough for you, what other fallible human story will you turn to for your religion?</p>
+            `
+          },
+          'best-hadith': {
+            title: 'The Best \'Hadith\'',
+            content: `
+              <p>The Qur\'an describes itself as the best possible narrative: <strong>\'Allah has sent down the best \'hadith\': a Book, consistent and mutually reinforcing...\' (Qur\'an 39:23)</strong>. By calling itself the \'best hadith\', the Qur\'an establishes its supremacy and implies the inferiority of all other hadith. Why would a believer abandon the \'best hadith\' from God for questionable hadith compiled by men centuries later?</p>
+            `
+          },
+          'idle-hadith': {
+            title: 'A Warning Against Distractions',
+            content: `
+              <p>The Qur\'an warns against those who uphold distracting narratives to lead people astray: <strong>\'And of the people is one who purchases an idle \'hadith\' (lahw al-hadith) to mislead [others] from the way of Allah without knowledge...\' (Qur\'an 31:6)</strong>. While traditional interpretations limit this to music or poetry, its literal meaning encompasses any distracting narrative that diverts people from the pure and sufficient guidance of the Qur\'an. Religious narratives outside the Qur\'an, which create division and contradiction, perfectly fit this description.</p>
+            `
+          },
+          'prophet-command': {
+            title: 'The Prophet\'s Command',
+            content: `
+              <p>A narration from the companion Abu Sa\'id al-Khudri, found in Sahih Muslim (one of the two most trusted Hadith collections), reports that the Prophet said: <strong>\'Do not write anything from me except the Qur\'an. Whoever has written anything from me other than the Qur\'an, let him erase it.\'</strong> (Sahih Muslim, Zuhd, 72). This is a clear and direct command from the Prophet to not create a parallel body of scripture. The very existence of Hadith books today is in direct violation of this instruction attributed to the Prophet himself.</p>
+            `
+          },
+          'fear-confusion': {
+            title: 'Fear of Confusion',
+            content: `
+              <p>The reason for this prohibition is clear: to prevent the mixing of God\'s perfect words (the Qur\'an) with the fallible words and reports of a human being (the Prophet). Early Muslims understood this well. The Caliph Umar ibn al-Khattab is reported to have considered compiling the Prophet\'s sayings but decided against it, saying, <strong>\'I remembered the people before you. They wrote books, and then they turned to them and abandoned the Book of God. And I will never, by God, mix the Book of God with anything.\'</strong> This historical understanding confirms that the focus was meant to be on the Qur\'an alone.</p>
+            `
+          },
+          'violation-command': {
+            title: 'Violation of the Command',
+            content: `
+              <p>Despite this clear prohibition, the practice of collecting, writing, and eventually canonizing the Prophet\'s sayings began to flourish over two centuries after his death. This human-led project directly contradicted the Prophet\'s own wishes (as reported in their own books) and led to the creation of the very problem he sought to avoid: the elevation of human reports to the level of divine scripture, causing division, contradiction, and the clouding of the pure message of the Qur\'an.</p>
+            `
+          }
+        };
+
+        cards.forEach(card => {
+          card.addEventListener('click', () => {
+            const modalKey = card.getAttribute('data-modal');
+            const content = modalContent[modalKey];
+            
+            if (content) {
+              modalBody.innerHTML = `
+                <h2>${content.title}</h2>
+                ${content.content}
+              `;
+              modalOverlay.classList.add('show');
+              document.body.style.overflow = 'hidden';
+            }
+          });
+        });
+
+        const closeModal = () => {
+          modalOverlay.classList.remove('show');
+          document.body.style.overflow = '';
+        };
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => {
+          if (e.target === modalOverlay) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeModal();
+        });
+      }
+
+      // FAQ System
+      setupFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item-classic');
+        
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-question-classic');
+          
+          question.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+            
+            // Close all other items
+            faqItems.forEach(otherItem => {
+              if (otherItem !== item && otherItem.classList.contains('open')) {
+                otherItem.classList.remove('open');
+              }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('open', !isOpen);
+          });
+        });
+      }
+
+      // Mobile Menu System
+      setupMobileMenu() {
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        mobileToggle.addEventListener('click', () => {
+          const isOpen = mobileMenu.classList.contains('show');
+          mobileMenu.classList.toggle('show');
+          
+          const icon = mobileToggle.querySelector('i');
+          icon.className = isOpen ? 'fas fa-bars' : 'fas fa-times';
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('show');
+            mobileToggle.querySelector('i').className = 'fas fa-bars';
+          });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+          if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.remove('show');
+            mobileToggle.querySelector('i').className = 'fas fa-bars';
+          }
+        });
+      }
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      new PremiumClassicWebsite();
     });
-  });
-
-  // --- Scroll to Top Button ---
-  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-  window.addEventListener('scroll', () => {
-    scrollToTopBtn.style.display = (window.scrollY > 500) ? "block" : "none";
-  });
-  scrollToTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-  // --- Card Modal Functionality ---
-  const cardModalOverlay = document.getElementById('cardModalOverlay');
-  const cardModalCloseBtn = document.getElementById('cardModalClose');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalContent = document.getElementById('modalContent');
-  const clickableCards = document.querySelectorAll('.topic-card');
-
-  function openModal(title, content) {
-      modalTitle.innerHTML = title;
-      modalContent.innerHTML = content;
-      cardModalOverlay.classList.add('show');
-      document.body.classList.add('modal-open');
-  }
-
-  function closeModal() {
-      cardModalOverlay.classList.remove('show');
-      document.body.classList.remove('modal-open');
-  }
-
-  clickableCards.forEach(card => {
-      card.addEventListener('click', () => {
-          const title = card.dataset.modalTitle || card.querySelector('h3').innerHTML;
-          const content = card.dataset.modalContent || '<p>Content not available.</p>';
-          openModal(title, content);
-      });
-  });
-
-  cardModalCloseBtn.addEventListener('click', closeModal);
-  cardModalOverlay.addEventListener('click', (e) => {
-      if (e.target === cardModalOverlay) closeModal();
-  });
-  document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && cardModalOverlay.classList.contains('show')) closeModal();
-  });
-
-  // Calculate scrollbar width for modal
-  window.addEventListener('load', () => {
-    document.documentElement.style.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + 'px');
-  });
-</script>
-
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+  </script>
 </body>
 </html>
