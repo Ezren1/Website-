@@ -399,10 +399,668 @@ body.cursor-hover .cursor-ring {
   opacity: 0.8;
 }
 
-/* Hide cursor on mobile */
+/* Enhanced Mobile Optimizations */
 @media (max-width: 1024px) {
   body { cursor: auto; }
   .premium-cursor { display: none; }
+  
+  /* Mobile Performance Optimizations */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  input, textarea, select, button {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+  
+  /* Reduce animations on mobile for better performance */
+  .particle-system {
+    display: none;
+  }
+  
+  /* Optimize scroll performance */
+  html {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+  
+  /* Reduce complex animations */
+  .geometric-patterns,
+  .floating-elements {
+    animation-duration: 8s;
+    animation-iteration-count: 1;
+  }
+  
+  /* Mobile-specific transforms for better performance */
+  .premium-card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Optimize mobile interactions */
+  .premium-btn {
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+  
+  /* Mobile-friendly spacing */
+  .section-container {
+    padding: 0 var(--space-md);
+  }
+  
+  .hero-title {
+    font-size: var(--text-4xl);
+  }
+  
+  .premium-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+/* Interactive Timeline Styles */
+.interactive-timeline {
+  margin-top: var(--space-4xl);
+}
+
+.timeline-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-3xl);
+  flex-wrap: wrap;
+}
+
+.timeline-btn {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.timeline-btn:hover,
+.timeline-btn.active {
+  background: var(--color-accent);
+  color: var(--text-inverse);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-era {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-normal);
+}
+
+.timeline-era.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.era-content {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  text-align: center;
+  backdrop-filter: var(--glass-backdrop);
+}
+
+.era-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  font-size: var(--text-2xl);
+  color: var(--text-inverse);
+}
+
+.era-content h3 {
+  font-family: var(--font-secondary);
+  font-size: var(--text-2xl);
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.era-content p {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+  line-height: var(--leading-relaxed);
+}
+
+.era-highlights {
+  display: grid;
+  gap: var(--space-sm);
+  text-align: left;
+}
+
+.highlight {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.highlight:contains("✓") {
+  color: var(--color-success);
+  border-left: 3px solid var(--color-success);
+}
+
+.highlight:contains("⚠") {
+  color: var(--color-warning);
+  border-left: 3px solid var(--color-warning);
+}
+
+.highlight:contains("✗") {
+  color: var(--color-error);
+  border-left: 3px solid var(--color-error);
+}
+
+/* Comparison Tool Styles */
+.comparison-tool {
+  margin-top: var(--space-4xl);
+}
+
+.topic-selector {
+  margin-bottom: var(--space-3xl);
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.topic-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  min-height: 100px;
+}
+
+.topic-btn:hover,
+.topic-btn.active {
+  background: var(--color-accent);
+  color: var(--text-inverse);
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.topic-btn i {
+  font-size: var(--text-xl);
+}
+
+.comparison-display {
+  position: relative;
+}
+
+.comparison-topic {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-normal);
+}
+
+.comparison-topic.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.comparison-sides {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.comparison-side {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  backdrop-filter: var(--glass-backdrop);
+}
+
+.quran-side {
+  border-left: 4px solid var(--color-success);
+}
+
+.hadith-side {
+  border-left: 4px solid var(--color-warning);
+}
+
+.side-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.side-header i {
+  font-size: var(--text-xl);
+  color: var(--color-accent);
+}
+
+.side-header h3 {
+  font-family: var(--font-secondary);
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+}
+
+.verse-card,
+.hadith-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.verse-text,
+.hadith-text {
+  font-family: var(--font-secondary);
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.verse-reference,
+.hadith-reference {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.summary {
+  margin-top: var(--space-lg);
+}
+
+.summary h4 {
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+  font-size: var(--text-lg);
+}
+
+.summary ul {
+  list-style: none;
+  padding: 0;
+}
+
+.summary li {
+  padding: var(--space-sm) 0;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: var(--space-lg);
+}
+
+.summary li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+.comparison-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.vs-badge {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
+  font-weight: bold;
+  font-size: var(--text-sm);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Mobile responsive adjustments for new sections */
+@media (max-width: 768px) {
+  .timeline-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .timeline-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .topic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .comparison-sides {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .comparison-divider {
+    order: -1;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .vs-badge {
+    transform: rotate(90deg);
+  }
+}
+
+/* Enhanced Resources Section Styles */
+.resource-categories {
+  margin-top: var(--space-4xl);
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-3xl);
+  flex-wrap: wrap;
+}
+
+.category-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.category-tab:hover,
+.category-tab.active {
+  background: var(--color-accent);
+  color: var(--text-inverse);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.category-tab i {
+  font-size: var(--text-lg);
+}
+
+.category-content {
+  position: relative;
+}
+
+.resource-grid {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-normal);
+}
+
+.resource-grid.active {
+  display: grid;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resource-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.resource-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.resource-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xl);
+  color: var(--text-inverse);
+}
+
+.resource-badge {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-success);
+  color: var(--text-inverse);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.resource-badge:contains("New") {
+  background: var(--color-info);
+}
+
+.resource-badge:contains("Interactive") {
+  background: var(--color-warning);
+}
+
+.resource-content {
+  flex: 1;
+  margin-bottom: var(--space-lg);
+}
+
+.resource-content h3 {
+  font-family: var(--font-secondary);
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.resource-content p {
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.resource-meta {
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.resource-meta span {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+}
+
+.resource-footer {
+  margin-top: auto;
+}
+
+.resource-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-accent);
+  color: var(--text-inverse);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  width: 100%;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.resource-btn:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Quick Access Section */
+.quick-access-section {
+  margin-top: var(--space-5xl);
+  padding-top: var(--space-3xl);
+  border-top: 1px solid var(--glass-border);
+}
+
+.quick-access-section h3 {
+  text-align: center;
+  font-family: var(--font-secondary);
+  font-size: var(--text-2xl);
+  color: var(--color-accent);
+  margin-bottom: var(--space-xl);
+}
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quick-access-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  min-height: 120px;
+  justify-content: center;
+}
+
+.quick-access-item:hover {
+  background: var(--bg-surface);
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-accent);
+}
+
+.quick-access-item i {
+  font-size: var(--text-2xl);
+}
+
+.quick-access-item span {
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Mobile-specific enhancements */
+@media (max-width: 768px) {
+  .category-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  
+  .category-tab {
+    flex-direction: column;
+    padding: var(--space-sm);
+    text-align: center;
+  }
+  
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quick-access-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .quick-access-item {
+    padding: var(--space-lg);
+    min-height: 100px;
+  }
+}
+
+/* Touch-specific styles */
+.touch-active {
+  transform: scale(0.98) !important;
+  opacity: 0.8 !important;
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .section-pattern {
+    display: none;
+  }
+  
+  .floating-elements,
+  .geometric-patterns {
+    display: none !important;
+  }
+  
+  .premium-card {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 /* Progress Indicators */
@@ -2946,6 +3604,14 @@ body.cursor-hover .cursor-ring {
             <i class="fas fa-book-open"></i>
             <span>Qur'an is Sufficient</span>
           </a>
+          <a href="#timeline" class="nav-link" data-section="timeline">
+            <i class="fas fa-history"></i>
+            <span>Timeline</span>
+          </a>
+          <a href="#comparison-tool" class="nav-link" data-section="comparison-tool">
+            <i class="fas fa-compare"></i>
+            <span>Compare</span>
+          </a>
           <a href="#contradictions" class="nav-link" data-section="contradictions">
             <i class="fas fa-balance-scale"></i>
             <span>Contradictions</span>
@@ -3004,6 +3670,14 @@ body.cursor-hover .cursor-ring {
           <a href="#quran-sufficient" class="mobile-nav-link">
             <i class="fas fa-book-open"></i>
             <span>Qur'an is Sufficient</span>
+          </a>
+          <a href="#timeline" class="mobile-nav-link">
+            <i class="fas fa-history"></i>
+            <span>Historical Timeline</span>
+          </a>
+          <a href="#comparison-tool" class="mobile-nav-link">
+            <i class="fas fa-compare"></i>
+            <span>Comparison Tool</span>
           </a>
           <a href="#contradictions" class="mobile-nav-link">
             <i class="fas fa-balance-scale"></i>
@@ -3531,6 +4205,252 @@ body.cursor-hover .cursor-ring {
       </div>
     </section>
 
+    <!-- New Interactive Timeline Section -->
+    <section class="premium-section" id="timeline">
+      <div class="section-background">
+        <div class="section-pattern"></div>
+      </div>
+      
+      <div class="section-container">
+        <header class="section-header">
+          <div class="section-badge">Historical Context</div>
+          <h2 class="section-title">The Evolution of Islamic Understanding</h2>
+          <p class="section-description">
+            Trace the historical development from the pure Qur'anic guidance to the gradual introduction of secondary sources and their impact on Islamic practice.
+          </p>
+        </header>
+        
+        <div class="interactive-timeline">
+          <div class="timeline-controls">
+            <button class="timeline-btn active" data-era="prophetic">Prophetic Era</button>
+            <button class="timeline-btn" data-era="caliphs">Early Caliphs</button>
+            <button class="timeline-btn" data-era="compilation">Hadith Compilation</button>
+            <button class="timeline-btn" data-era="modern">Modern Era</button>
+          </div>
+          
+          <div class="timeline-container">
+            <div class="timeline-era active" data-era="prophetic">
+              <div class="era-content">
+                <div class="era-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <h3>Prophetic Era (610-632 CE)</h3>
+                <p>The Qur'an was revealed and implemented as the sole source of guidance. No written hadith collections existed.</p>
+                <div class="era-highlights">
+                  <div class="highlight">✓ Qur'an revealed over 23 years</div>
+                  <div class="highlight">✓ Direct divine guidance</div>
+                  <div class="highlight">✓ No secondary sources needed</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-era" data-era="caliphs">
+              <div class="era-content">
+                <div class="era-icon">
+                  <i class="fas fa-crown"></i>
+                </div>
+                <h3>Early Caliphs (632-661 CE)</h3>
+                <p>The first four caliphs continued to use the Qur'an as the primary source, with some personal judgments (ijtihad).</p>
+                <div class="era-highlights">
+                  <div class="highlight">✓ Qur'an remained central</div>
+                  <div class="highlight">⚠ Individual interpretations began</div>
+                  <div class="highlight">⚠ Political considerations influenced decisions</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-era" data-era="compilation">
+              <div class="era-content">
+                <div class="era-icon">
+                  <i class="fas fa-scroll"></i>
+                </div>
+                <h3>Hadith Compilation (750-950 CE)</h3>
+                <p>Major hadith collections were compiled 200+ years after the Prophet, introducing new religious sources.</p>
+                <div class="era-highlights">
+                  <div class="highlight">⚠ Collections written centuries later</div>
+                  <div class="highlight">✗ Contradictions with Qur'an emerged</div>
+                  <div class="highlight">✗ Sectarian divisions solidified</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-era" data-era="modern">
+              <div class="era-content">
+                <div class="era-icon">
+                  <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Modern Revival (1800s-Present)</h3>
+                <p>Scholars and movements calling for return to Qur'an-only Islam, questioning hadith authenticity.</p>
+                <div class="era-highlights">
+                  <div class="highlight">✓ Critical scholarship emerging</div>
+                  <div class="highlight">✓ Global accessibility to Qur'an</div>
+                  <div class="highlight">✓ Return to pure Islam movement</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Comparison Tool Section -->
+    <section class="premium-section" id="comparison-tool">
+      <div class="section-background">
+        <div class="section-pattern"></div>
+      </div>
+      
+      <div class="section-container">
+        <header class="section-header">
+          <div class="section-badge">Interactive Tool</div>
+          <h2 class="section-title">Qur'an vs Hadith Comparison</h2>
+          <p class="section-description">
+            Explore side-by-side comparisons of key topics to see how hadith often contradicts or unnecessarily complicates the clear guidance of the Qur'an.
+          </p>
+        </header>
+        
+        <div class="comparison-tool">
+          <div class="topic-selector">
+            <div class="topic-grid">
+              <button class="topic-btn active" data-topic="prayer">
+                <i class="fas fa-pray"></i>
+                <span>Prayer</span>
+              </button>
+              <button class="topic-btn" data-topic="charity">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>Charity</span>
+              </button>
+              <button class="topic-btn" data-topic="fasting">
+                <i class="fas fa-moon"></i>
+                <span>Fasting</span>
+              </button>
+              <button class="topic-btn" data-topic="marriage">
+                <i class="fas fa-heart"></i>
+                <span>Marriage</span>
+              </button>
+              <button class="topic-btn" data-topic="justice">
+                <i class="fas fa-balance-scale"></i>
+                <span>Justice</span>
+              </button>
+              <button class="topic-btn" data-topic="forgiveness">
+                <i class="fas fa-dove"></i>
+                <span>Forgiveness</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="comparison-display">
+            <div class="comparison-topic active" data-topic="prayer">
+              <div class="comparison-sides">
+                <div class="comparison-side quran-side">
+                  <div class="side-header">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Qur'an Says</h3>
+                  </div>
+                  <div class="side-content">
+                    <div class="verse-card">
+                      <p class="verse-text">"Establish prayer for My remembrance."</p>
+                      <cite class="verse-reference">Qur'an 20:14</cite>
+                    </div>
+                    <div class="verse-card">
+                      <p class="verse-text">"So woe to those who pray, who are heedless of their prayers."</p>
+                      <cite class="verse-reference">Qur'an 107:4-5</cite>
+                    </div>
+                    <div class="summary">
+                      <h4>Simple & Clear:</h4>
+                      <ul>
+                        <li>Focus on remembrance of God</li>
+                        <li>Be conscious and present</li>
+                        <li>No complex rituals specified</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="comparison-divider">
+                  <div class="vs-badge">VS</div>
+                </div>
+                
+                <div class="comparison-side hadith-side">
+                  <div class="side-header">
+                    <i class="fas fa-scroll"></i>
+                    <h3>Hadith Adds</h3>
+                  </div>
+                  <div class="side-content">
+                    <div class="hadith-card">
+                      <p class="hadith-text">Specific number of units (rakats)</p>
+                      <cite class="hadith-reference">Various Hadith</cite>
+                    </div>
+                    <div class="hadith-card">
+                      <p class="hadith-text">Exact wording requirements</p>
+                      <cite class="hadith-reference">Various Hadith</cite>
+                    </div>
+                    <div class="summary">
+                      <h4>Complex & Restrictive:</h4>
+                      <ul>
+                        <li>Hundreds of specific rules</li>
+                        <li>Invalidation for minor errors</li>
+                        <li>Focus on form over meaning</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comparison-topic" data-topic="charity">
+              <div class="comparison-sides">
+                <div class="comparison-side quran-side">
+                  <div class="side-header">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Qur'an Says</h3>
+                  </div>
+                  <div class="side-content">
+                    <div class="verse-card">
+                      <p class="verse-text">"Give from what We have provided you."</p>
+                      <cite class="verse-reference">Qur'an 2:254</cite>
+                    </div>
+                    <div class="summary">
+                      <h4>Principle-Based:</h4>
+                      <ul>
+                        <li>Give according to your means</li>
+                        <li>Help those in need</li>
+                        <li>Sincere intention matters</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="comparison-divider">
+                  <div class="vs-badge">VS</div>
+                </div>
+                
+                <div class="comparison-side hadith-side">
+                  <div class="side-header">
+                    <i class="fas fa-scroll"></i>
+                    <h3>Hadith Adds</h3>
+                  </div>
+                  <div class="side-content">
+                    <div class="hadith-card">
+                      <p class="hadith-text">Exact 2.5% calculation (Zakat)</p>
+                      <cite class="hadith-reference">Various Hadith</cite>
+                    </div>
+                    <div class="summary">
+                      <h4>Rigid & Mathematical:</h4>
+                      <ul>
+                        <li>Fixed percentages</li>
+                        <li>Complex calculations</li>
+                        <li>Bureaucratic collection</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Premium FAQ Section with Advanced Interactions -->
     <section class="premium-section" id="faq">
       <div class="section-background">
@@ -3837,6 +4757,189 @@ body.cursor-hover .cursor-ring {
         </div>
       </div>
     </section>
+
+    <!-- Enhanced Resources Section -->
+    <section class="premium-section" id="resources">
+      <div class="section-background">
+        <div class="section-pattern"></div>
+      </div>
+      
+      <div class="section-container">
+        <header class="section-header">
+          <div class="section-badge">Resources & Tools</div>
+          <h2 class="section-title">Comprehensive Learning Materials</h2>
+          <p class="section-description">
+            Access a wealth of resources, tools, and materials to deepen your understanding of Qur'an-only Islam and support your spiritual journey.
+          </p>
+        </header>
+        
+        <!-- Resource Categories -->
+        <div class="resource-categories">
+          <div class="category-tabs">
+            <button class="category-tab active" data-category="documents">
+              <i class="fas fa-file-pdf"></i>
+              <span>Documents</span>
+            </button>
+            <button class="category-tab" data-category="videos">
+              <i class="fas fa-video"></i>
+              <span>Videos</span>
+            </button>
+            <button class="category-tab" data-category="tools">
+              <i class="fas fa-tools"></i>
+              <span>Tools</span>
+            </button>
+            <button class="category-tab" data-category="books">
+              <i class="fas fa-book"></i>
+              <span>Books</span>
+            </button>
+          </div>
+          
+          <div class="category-content">
+            <div class="resource-grid active" data-category="documents">
+              <div class="resource-item premium-card">
+                <div class="resource-header">
+                  <div class="resource-icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </div>
+                  <div class="resource-badge">Free</div>
+                </div>
+                <div class="resource-content">
+                  <h3>Qur'an Sufficiency Evidence</h3>
+                  <p>Comprehensive collection of Qur'anic verses proving the book's sufficiency as guidance.</p>
+                  <div class="resource-meta">
+                    <span>50 pages</span>
+                    <span>200+ references</span>
+                  </div>
+                </div>
+                <div class="resource-footer">
+                  <a href="https://drive.google.com/file/d/1tjscYL6-wesUQxQntH0kzANqq9ngEMCx/view?usp=drivesdk" target="_blank" class="resource-btn">
+                    <span>Download PDF</span>
+                    <i class="fas fa-download"></i>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="resource-item premium-card">
+                <div class="resource-header">
+                  <div class="resource-icon">
+                    <i class="fas fa-balance-scale"></i>
+                  </div>
+                  <div class="resource-badge">Free</div>
+                </div>
+                <div class="resource-content">
+                  <h3>Hadith Contradictions Analysis</h3>
+                  <p>Detailed analysis of major contradictions between Qur'an and hadith collections.</p>
+                  <div class="resource-meta">
+                    <span>75 pages</span>
+                    <span>100+ examples</span>
+                  </div>
+                </div>
+                <div class="resource-footer">
+                  <a href="https://drive.google.com/file/d/1tlaKxkXcUEqoYpmjzJBFo7Wc4wnB_w8J/view?usp=drivesdk" target="_blank" class="resource-btn">
+                    <span>Download PDF</span>
+                    <i class="fas fa-download"></i>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="resource-item premium-card">
+                <div class="resource-header">
+                  <div class="resource-icon">
+                    <i class="fas fa-history"></i>
+                  </div>
+                  <div class="resource-badge">New</div>
+                </div>
+                <div class="resource-content">
+                  <h3>Historical Timeline Guide</h3>
+                  <p>Interactive guide to the historical development of Islamic sources and sectarianism.</p>
+                  <div class="resource-meta">
+                    <span>Interactive</span>
+                    <span>Timeline format</span>
+                  </div>
+                </div>
+                <div class="resource-footer">
+                  <a href="#timeline" class="resource-btn">
+                    <span>Explore Timeline</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="resource-grid" data-category="tools">
+              <div class="resource-item premium-card">
+                <div class="resource-header">
+                  <div class="resource-icon">
+                    <i class="fas fa-compare"></i>
+                  </div>
+                  <div class="resource-badge">Interactive</div>
+                </div>
+                <div class="resource-content">
+                  <h3>Qur'an vs Hadith Comparison</h3>
+                  <p>Interactive tool to compare Qur'anic guidance with hadith complications on various topics.</p>
+                  <div class="resource-meta">
+                    <span>6 topics</span>
+                    <span>Side-by-side</span>
+                  </div>
+                </div>
+                <div class="resource-footer">
+                  <a href="#comparison-tool" class="resource-btn">
+                    <span>Use Tool</span>
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="resource-item premium-card">
+                <div class="resource-header">
+                  <div class="resource-icon">
+                    <i class="fas fa-search"></i>
+                  </div>
+                  <div class="resource-badge">Tool</div>
+                </div>
+                <div class="resource-content">
+                  <h3>Qur'an Search Engine</h3>
+                  <p>Advanced search capabilities to find specific verses and topics in the Qur'an.</p>
+                  <div class="resource-meta">
+                    <span>6,236 verses</span>
+                    <span>Topic search</span>
+                  </div>
+                </div>
+                <div class="resource-footer">
+                  <button class="resource-btn" onclick="document.querySelector('.premium-search').focus()">
+                    <span>Search Now</span>
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Quick Access Resources -->
+        <div class="quick-access-section">
+          <h3>Quick Access</h3>
+          <div class="quick-access-grid">
+            <a href="#faq" class="quick-access-item">
+              <i class="fas fa-question-circle"></i>
+              <span>Common Questions</span>
+            </a>
+            <a href="#contradictions" class="quick-access-item">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>Contradictions</span>
+            </a>
+            <a href="https://quran.com" target="_blank" class="quick-access-item">
+              <i class="fas fa-book-open"></i>
+              <span>Read Qur'an</span>
+            </a>
+            <a href="#timeline" class="quick-access-item">
+              <i class="fas fa-history"></i>
+              <span>Timeline</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Premium Footer -->
@@ -4043,8 +5146,12 @@ class PremiumWebsiteEngine {
       this.initializeSearch();
       this.initializeModals();
       this.initializeInteractions();
+      this.initializeTimeline();
+      this.initializeComparisonTool();
+      this.initializeResourceCategories();
       this.initializeAccessibility();
       this.initializePerformanceMonitoring();
+      this.initializeMobileOptimizations();
       
       // Mark as loaded
       this.isLoaded = true;
@@ -5662,6 +6769,376 @@ class PremiumWebsiteEngine {
 
     // Announce to screen readers
     this.announceToScreenReader(message);
+  }
+
+  // ==========================================
+  // INTERACTIVE TIMELINE
+  // ==========================================
+  
+  initializeTimeline() {
+    const timelineButtons = document.querySelectorAll('.timeline-btn');
+    const timelineEras = document.querySelectorAll('.timeline-era');
+    
+    if (!timelineButtons.length) return;
+    
+    timelineButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const era = button.dataset.era;
+        
+        // Update active button
+        timelineButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Update active era with smooth transition
+        timelineEras.forEach(eraEl => {
+          eraEl.classList.remove('active');
+        });
+        
+        setTimeout(() => {
+          const targetEra = document.querySelector(`[data-era="${era}"]`);
+          if (targetEra) {
+            targetEra.classList.add('active');
+          }
+        }, 150);
+        
+        this.trackInteraction('timeline_era_selected', { era });
+      });
+    });
+  }
+
+  // ==========================================
+  // COMPARISON TOOL
+  // ==========================================
+  
+  initializeComparisonTool() {
+    const topicButtons = document.querySelectorAll('.topic-btn');
+    const comparisonTopics = document.querySelectorAll('.comparison-topic');
+    
+    if (!topicButtons.length) return;
+    
+    // Add more comparison data
+    this.comparisonData = {
+      fasting: {
+        quran: {
+          verses: [
+            {
+              text: "O you who believe! Fasting is prescribed for you as it was prescribed for those before you, that you may become righteous.",
+              reference: "Qur'an 2:183"
+            }
+          ],
+          summary: [
+            "Simple commandment to fast",
+            "Focus on righteousness",
+            "Personal spiritual development"
+          ]
+        },
+        hadith: {
+          items: [
+            {
+              text: "Complex rules about brushing teeth",
+              reference: "Various Hadith"
+            },
+            {
+              text: "Detailed food restrictions",
+              reference: "Various Hadith"
+            }
+          ],
+          summary: [
+            "Hundreds of micro-rules",
+            "Focus on external compliance",
+            "Burden on believers"
+          ]
+        }
+      },
+      marriage: {
+        quran: {
+          verses: [
+            {
+              text: "And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them.",
+              reference: "Qur'an 30:21"
+            }
+          ],
+          summary: [
+            "Partnership and tranquility",
+            "Mutual respect and love",
+            "Spiritual bond"
+          ]
+        },
+        hadith: {
+          items: [
+            {
+              text: "Complex marriage contract rules",
+              reference: "Various Hadith"
+            },
+            {
+              text: "Restrictive social interactions",
+              reference: "Various Hadith"
+            }
+          ],
+          summary: [
+            "Legal technicalities",
+            "Gender restrictions",
+            "Social barriers"
+          ]
+        }
+      }
+    };
+    
+    topicButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const topic = button.dataset.topic;
+        
+        // Update active button
+        topicButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Update active comparison with smooth transition
+        comparisonTopics.forEach(topicEl => {
+          topicEl.classList.remove('active');
+        });
+        
+        setTimeout(() => {
+          const targetTopic = document.querySelector(`[data-topic="${topic}"]`);
+          if (targetTopic) {
+            targetTopic.classList.add('active');
+            
+            // Update content if we have dynamic data
+            if (this.comparisonData[topic]) {
+              this.updateComparisonContent(topic);
+            }
+          }
+        }, 150);
+        
+        this.trackInteraction('comparison_topic_selected', { topic });
+      });
+    });
+  }
+  
+  updateComparisonContent(topic) {
+    const data = this.comparisonData[topic];
+    if (!data) return;
+    
+    const topicElement = document.querySelector(`[data-topic="${topic}"]`);
+    if (!topicElement) return;
+    
+    // Update Qur'an side
+    const quranSide = topicElement.querySelector('.quran-side .side-content');
+    if (quranSide && data.quran) {
+      let quranHTML = '';
+      
+      data.quran.verses.forEach(verse => {
+        quranHTML += `
+          <div class="verse-card">
+            <p class="verse-text">"${verse.text}"</p>
+            <cite class="verse-reference">${verse.reference}</cite>
+          </div>
+        `;
+      });
+      
+      quranHTML += `
+        <div class="summary">
+          <h4>Simple & Clear:</h4>
+          <ul>
+            ${data.quran.summary.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+      
+      quranSide.innerHTML = quranHTML;
+    }
+    
+    // Update Hadith side
+    const hadithSide = topicElement.querySelector('.hadith-side .side-content');
+    if (hadithSide && data.hadith) {
+      let hadithHTML = '';
+      
+      data.hadith.items.forEach(item => {
+        hadithHTML += `
+          <div class="hadith-card">
+            <p class="hadith-text">${item.text}</p>
+            <cite class="hadith-reference">${item.reference}</cite>
+          </div>
+        `;
+      });
+      
+      hadithHTML += `
+        <div class="summary">
+          <h4>Complex & Restrictive:</h4>
+          <ul>
+            ${data.hadith.summary.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+      
+      hadithSide.innerHTML = hadithHTML;
+    }
+  }
+
+  // ==========================================
+  // RESOURCE CATEGORIES
+  // ==========================================
+  
+  initializeResourceCategories() {
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const resourceGrids = document.querySelectorAll('.resource-grid');
+    
+    if (!categoryTabs.length) return;
+    
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.dataset.category;
+        
+        // Update active tab
+        categoryTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        // Update active resource grid with smooth transition
+        resourceGrids.forEach(grid => {
+          grid.classList.remove('active');
+        });
+        
+        setTimeout(() => {
+          const targetGrid = document.querySelector(`[data-category="${category}"]`);
+          if (targetGrid) {
+            targetGrid.classList.add('active');
+          }
+        }, 150);
+        
+        this.trackInteraction('resource_category_selected', { category });
+      });
+    });
+  }
+
+  // ==========================================
+  // MOBILE OPTIMIZATIONS
+  // ==========================================
+  
+  initializeMobileOptimizations() {
+    // Detect mobile device
+    this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    this.isTouch = 'ontouchstart' in window;
+    
+    if (this.isMobile || this.isTouch) {
+      this.optimizeForMobile();
+    }
+    
+    // Optimize scroll performance on mobile
+    this.optimizeScrollPerformance();
+    
+    // Add touch-friendly interactions
+    this.enhanceTouchInteractions();
+    
+    // Optimize animations for mobile
+    this.optimizeMobileAnimations();
+  }
+  
+  optimizeForMobile() {
+    document.body.classList.add('mobile-device');
+    
+    // Disable hover effects on mobile
+    const hoverElements = document.querySelectorAll('.premium-card, .premium-btn, .nav-link');
+    hoverElements.forEach(el => {
+      el.classList.add('touch-device');
+    });
+    
+    // Optimize images for mobile
+    this.optimizeImagesForMobile();
+    
+    // Reduce particle system complexity
+    if (this.particleSystem) {
+      this.particleSystem.particleCount = Math.floor(this.particleSystem.particleCount / 2);
+    }
+  }
+  
+  optimizeScrollPerformance() {
+    let ticking = false;
+    
+    const optimizedScrollHandler = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          this.handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    // Use passive scroll listeners for better performance
+    window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
+  }
+  
+  enhanceTouchInteractions() {
+    // Add touch feedback
+    const interactiveElements = document.querySelectorAll('.premium-btn, .premium-card, .nav-link, .timeline-btn, .topic-btn');
+    
+    interactiveElements.forEach(el => {
+      el.addEventListener('touchstart', () => {
+        el.classList.add('touch-active');
+      }, { passive: true });
+      
+      el.addEventListener('touchend', () => {
+        setTimeout(() => {
+          el.classList.remove('touch-active');
+        }, 150);
+      }, { passive: true });
+    });
+    
+    // Improve button touch targets
+    this.improveTouchTargets();
+  }
+  
+  improveTouchTargets() {
+    const buttons = document.querySelectorAll('button, .premium-btn, .nav-link');
+    buttons.forEach(button => {
+      const rect = button.getBoundingClientRect();
+      if (rect.height < 48) {
+        button.style.minHeight = '48px';
+        button.style.display = 'flex';
+        button.style.alignItems = 'center';
+        button.style.justifyContent = 'center';
+      }
+    });
+  }
+  
+  optimizeMobileAnimations() {
+    if (this.isMobile) {
+      // Reduce animation duration on mobile
+      const style = document.createElement('style');
+      style.textContent = `
+        @media (max-width: 768px) {
+          * {
+            animation-duration: 0.2s !important;
+            transition-duration: 0.2s !important;
+          }
+          
+          .floating-elements,
+          .geometric-patterns {
+            display: none !important;
+          }
+          
+          .parallax-element {
+            transform: none !important;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }
+  
+  optimizeImagesForMobile() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      // Add loading="lazy" for better performance
+      if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy');
+      }
+      
+      // Add proper sizing
+      if (!img.style.maxWidth) {
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
+      }
+    });
   }
 
   // ==========================================
